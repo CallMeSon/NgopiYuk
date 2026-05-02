@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Velvet Latte",
+    "description": "Kopi murni yang pekat dan kuat, diekstraksi dengan tekanan tinggi.",
+    "price": 20000,
+    "type": "Panas",
+    "rating": 4.8,
+    "image": "drawable/img_velvet"
+  },
+  {
+    "id": 2,
+    "name": "Cappuccino",
+    "description": "Perpaduan sempurna espresso, susu panas, dan busa susu yang lembut.",
+    "price": 28000,
+    "type": "Panas",
+    "rating": 4.5,
+    "image": "drawable/img_cappuccino"
+  },
+  {
+    "id": 3,
+    "name": "Cold Brew Nitro",
+    "description": "Espresso yang diencerkan dengan air dingin dan disajikan dengan es batu.",
+    "price": 22000,
+    "type": "Dingin",
+    "rating": 4.2,
+    "image": "drawable/img_coldbrew"
+  },
+  {
+    "id": 4,
+    "name": "Caramel Swirl",
+    "description": "Susu manis dengan vanilla, espresso, dan siraman saus karamel di atasnya.",
+    "price": 35000,
+    "type": "Dingin",
+    "rating": 4.7,
+    "image": "drawable/img_caramel"
+  }
+]

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#e3beb8",
+                        "inverse-surface": "#33302f",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#201a18",
+                        "on-primary-fixed": "#2b1613",
+                        "primary-container": "#3e2723",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#6b6360",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#ffdad4",
+                        "inverse-on-surface": "#f7efee",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-primary-fixed-variant": "#5b403c",
+                        "surface-bright": "#fff8f6",
+                        "surface-variant": "#e8e1df",
+                        "surface-dim": "#e0d8d7",
+                        "surface-container-high": "#eee6e5",
+                        "secondary-container": "#ece0dc",
+                        "on-tertiary-container": "#939494",
+                        "background": "#fff8f6",
+                        "tertiary-fixed": "#e2e2e2",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfc4c0",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-secondary-fixed-variant": "#4c4542",
+                        "on-primary-container": "#ae8d87",
+                        "surface-container-low": "#faf2f0",
+                        "outline": "#827472",
+                        "on-surface": "#1e1b1a",
+                        "outline-variant": "#d3c3c0",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-surface-variant": "#504442",
+                        "surface-container": "#f4eceb",
+                        "surface": "#fff8f6",
+                        "tertiary": "#161819",
+                        "surface-container-highest": "#e8e1df",
+                        "inverse-primary": "#e3beb8",
+                        "secondary": "#655d5a",
+                        "on-background": "#1e1b1a",
+                        "primary": "#271310",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#ece0dc",
+                        "tertiary-container": "#2b2d2d",
+                        "surface-tint": "#745853"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "stack-md": "16px",
+                        "container-padding": "24px",
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "gutter": "16px",
+                        "section-gap": "48px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-lg": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fff8f6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface selection:bg-primary-fixed-dim selection:text-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-md border-b border-stone-200/50 dark:border-stone-800/50 shadow-sm">
+<div class="flex items-center justify-between px-6 h-16 w-full max-w-2xl mx-auto">
+<button class="material-symbols-outlined text-stone-900 dark:text-stone-50 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors active:scale-95 duration-200 p-2 rounded-full" data-icon="menu">menu</button>
+<h1 class="text-xl font-bold text-stone-900 dark:text-stone-100 font-['Plus_Jakarta_Sans'] font-semibold tracking-tight">NgopiYuk</h1>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="Modern minimalist studio portrait of a woman with a warm expression and natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwB61aWJmqeXDFIOHCP5uhWfkSnGWuNu3ivsUzTE2Wsq6js76z22wpGwb4A2-xFfOlwg0mkhduEo-sKLIrJeGDreYOv2UUFZ83TWNWs56x1CaqK_PTaEyHK7Z714wr-VKoogpVQQzSPb3CGvQ-NquU_Bh0b819En6Oh6xD568tKLHEKVXtqr2LYZD6CUBinIJeJ7HLmr6cF1DCPKEV-meT9jYGB4XkualX63WIMA95YMbWECWCL03f0h-IsmDCRYRGKC33DS6TVPc"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-container-padding max-w-2xl mx-auto min-h-screen">
+<!-- Tab Navigation -->
+<div class="flex gap-stack-md mb-stack-lg p-1 bg-surface-container-low rounded-2xl">
+<button class="flex-1 py-3 px-4 rounded-xl font-label-lg text-label-lg bg-primary text-on-primary shadow-sm transition-all">Ongoing</button>
+<button class="flex-1 py-3 px-4 rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-variant/50 transition-all">History</button>
+</div>
+<!-- Ongoing Orders Section -->
+<section class="space-y-stack-lg">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-lg text-headline-lg text-primary">Ongoing Order</h2>
+<span class="font-label-sm text-label-sm text-on-primary-container px-3 py-1 bg-secondary-container rounded-full">1 Active</span>
+</div>
+<!-- Active Order Card -->
+<div class="bg-surface-container-lowest rounded-[32px] p-6 shadow-[0_16px_32px_rgba(62,39,35,0.04)] border border-outline-variant/20">
+<div class="flex gap-4 mb-6">
+<div class="w-20 h-20 rounded-2xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Artisanal caramel swirl latte with creamy foam and drizzled caramel in a ceramic cup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6PTDkzqNeeObChqjjv2W1LW3srFKup1MO6NVXMEFt7B60GsPgnygYtsUlPxTZeFHvSW3FfcahG3_O7C37pxpYii_w37KFJ8Qnpu4dYZR1czMnd_HXC-YudvZeNvX79Y02k7K1hHC2Fpe3yIlACFQ3KLIP6LSYjgYVC8G8zI0zioYOZyc8YFQQ-p9e4gNGGd8vDraKMkU0qcwItXZD-Sx_TF-_PY1C_cKiyhvfyPLXmwPOPlpQDH14mj48n-MOf_Mv5hy7egzw3bo"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-1">Caramel Swirl</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Oat Milk • Medium Roast</p>
+</div>
+<p class="font-headline-md text-headline-md text-primary">$5.50</p>
+</div>
+</div>
+</div>
+<!-- Progress Section -->
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="coffee_maker">coffee_maker</span>
+<span class="font-label-lg text-label-lg text-primary">Brewing your drink</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Est. 4 mins</span>
+</div>
+<!-- Progress Bar -->
+<div class="h-3 w-full bg-surface-container-high rounded-full overflow-hidden relative">
+<div class="absolute inset-y-0 left-0 bg-primary-container rounded-full w-2/3 shadow-sm"></div>
+<div class="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-transparent to-white/20"></div>
+</div>
+<div class="flex justify-between px-1">
+<span class="font-label-sm text-label-sm text-primary-container">Order Placed</span>
+<span class="font-label-sm text-label-sm text-primary-container font-bold">Brewing</span>
+<span class="font-label-sm text-label-sm text-outline-variant">Ready</span>
+</div>
+</div>
+</div>
+</section>
+<!-- History Preview (Implicitly shows how History would look) -->
+<section class="mt-section-gap space-y-stack-lg opacity-60 grayscale-[0.2]">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-lg text-headline-lg text-primary">Recent History</h2>
+</div>
+<!-- History Item Card -->
+<div class="bg-surface-container-lowest rounded-[24px] p-5 shadow-sm border border-outline-variant/10 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="history">history</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-primary">Vanilla Bean Macchiato</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Oct 24, 2023 • $4.80</p>
+</div>
+</div>
+<button class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-xl font-label-sm text-label-sm hover:bg-outline-variant transition-colors active:scale-95 duration-200">
+                    Reorder
+                </button>
+</div>
+<!-- History Item Card 2 -->
+<div class="bg-surface-container-lowest rounded-[24px] p-5 shadow-sm border border-outline-variant/10 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="history">history</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-primary">Classic Espresso</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Oct 22, 2023 • $3.50</p>
+</div>
+</div>
+<button class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-xl font-label-sm text-label-sm hover:bg-outline-variant transition-colors active:scale-95 duration-200">
+                    Reorder
+                </button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full h-20 bg-stone-50/90 dark:bg-stone-950/90 backdrop-blur-lg border-t border-stone-200/30 dark:border-stone-800/30 shadow-[0_-4px_24px_rgba(62,39,35,0.06)] flex justify-around items-center px-8 pb-2 z-50 rounded-t-[32px]">
+<button class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 px-5 py-2 hover:text-stone-800 dark:hover:text-stone-200 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-['Plus_Jakarta_Sans'] text-xs font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center rounded-2xl px-5 py-2 active:scale-90 transition-transform duration-200 bg-primary-container text-on-primary-container">
+<span class="material-symbols-outlined mb-1" data-icon="receipt_long">receipt_long</span>
+<span class="font-['Plus_Jakarta_Sans'] text-xs font-medium">Orders</span>
+</button>
+<button class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 px-5 py-2 hover:text-stone-800 dark:hover:text-stone-200 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-['Plus_Jakarta_Sans'] text-xs font-medium">Profile</span>
+</button>
+</nav>
+</body></html>

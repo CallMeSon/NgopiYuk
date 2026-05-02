@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#fff8f6",
+                    "surface": "#fff8f6",
+                    "on-primary-fixed-variant": "#5b403c",
+                    "secondary-fixed": "#ece0dc",
+                    "tertiary-container": "#2b2d2d",
+                    "on-primary-container": "#ae8d87",
+                    "secondary-fixed-dim": "#cfc4c0",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#e0d8d7",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#745853",
+                    "surface-container": "#f4eceb",
+                    "on-primary-fixed": "#2b1613",
+                    "outline": "#827472",
+                    "on-background": "#1e1b1a",
+                    "inverse-on-surface": "#f7efee",
+                    "primary-container": "#3e2723",
+                    "outline-variant": "#d3c3c0",
+                    "on-secondary-container": "#6b6360",
+                    "inverse-primary": "#e3beb8",
+                    "tertiary-fixed": "#e2e2e2",
+                    "on-primary": "#ffffff",
+                    "primary-fixed-dim": "#e3beb8",
+                    "on-tertiary": "#ffffff",
+                    "surface-bright": "#fff8f6",
+                    "primary-fixed": "#ffdad4",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "tertiary": "#161819",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#939494",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#201a18",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "surface-container-highest": "#e8e1df",
+                    "inverse-surface": "#33302f",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#4c4542",
+                    "secondary": "#655d5a",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "secondary-container": "#ece0dc",
+                    "surface-container-high": "#eee6e5",
+                    "surface-variant": "#e8e1df",
+                    "on-surface": "#1e1b1a",
+                    "on-error-container": "#93000a",
+                    "primary": "#271310",
+                    "surface-container-low": "#faf2f0",
+                    "on-surface-variant": "#504442"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "32px",
+                    "container-padding": "24px",
+                    "stack-sm": "8px",
+                    "section-gap": "48px",
+                    "stack-md": "16px",
+                    "gutter": "16px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Plus Jakarta Sans"],
+                    "label-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 h-16 bg-white/80 dark:bg-stone-950/80 backdrop-blur-lg border-b border-stone-100 dark:border-stone-800 shadow-sm shadow-stone-900/5">
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined text-stone-900 dark:text-stone-50">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold text-stone-900 dark:text-stone-50 font-['Plus_Jakarta_Sans'] font-semibold tracking-tight">Slow Bar</h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined text-stone-900 dark:text-stone-50">shopping_bag</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-stone-200 overflow-hidden">
+<img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWO8IpRyMV4iUoDx2I8oKrtkjEmWnTermbl3KZgnrgeqJvr6ycA489Y6OSDC5J6hvX0JPIbIa9foyRpYcijWirzXB3LoPAHNJzLmqptNi5n6m_uLaT6Ksc04NjrJcLE2pLNZd0J_B-ysYLkDuRO8WOG6CzLJECHeG1KX6M0oJwXjQ_CW8aQlNqSBw_kDKUHmt0GzVPM_HuPsYDO15TgwPmjIkn2oQsXLQM_iBUxyK9YeRNS1ZzRwqUvlJAYW3Rr2ua3xrNO3Yi-O4"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-64 px-container-padding max-w-2xl mx-auto space-y-section-gap">
+<!-- Cart Items Section -->
+<section class="space-y-stack-md">
+<h2 class="font-headline-lg text-on-surface">Pesanan Anda</h2>
+<div class="space-y-gutter">
+<!-- Item 1 -->
+<div class="flex gap-stack-md p-stack-md bg-surface-container-lowest rounded-[24px] shadow-[0_8px_30px_rgb(62,39,35,0.03)] border border-stone-100">
+<div class="w-24 h-24 rounded-[16px] overflow-hidden flex-shrink-0">
+<img alt="Flat White" class="w-full h-full object-cover" data-alt="close-up of a creamy flat white coffee with elegant latte art in a ceramic cup on a wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhwR00rpm5rn4ioiggXEujgO2CMorGxQ__7zbsoAu0jYIN1An3NltUxbTXUO_bchcfw2pKpWFpwg7aK4OugtvdfJVvSqdhHnkj86D64wQAI1l1TCltg_FwKUJ1Od1i10L5YSQCJFqclJjA9OU62p4nHjU5Ra-vt7z-rOETO3kWTkecmAviuYybQKsbn-ib2lI4uUPKFMTl_QeO2XE-T96f_txrn6OLFvQ2ZscxkZ9c57ZIrs5wEelqHuS-98u9fWmRVHYHMp_OoZA"/>
+</div>
+<div class="flex-1 flex flex-col justify-between py-1">
+<div>
+<h3 class="font-headline-md text-primary">Signature Flat White</h3>
+<p class="text-label-sm text-on-surface-variant">Oat Milk • Medium Roast</p>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-bold text-on-primary-fixed-variant">Rp 42.000</span>
+<div class="flex items-center gap-stack-sm bg-surface-container rounded-full px-3 py-1">
+<button class="w-6 h-6 flex items-center justify-center text-primary-container"><span class="material-symbols-outlined text-[18px]" data-icon="remove">remove</span></button>
+<span class="text-label-lg font-bold min-w-[20px] text-center">1</span>
+<button class="w-6 h-6 flex items-center justify-center text-primary-container"><span class="material-symbols-outlined text-[18px]" data-icon="add">add</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-stack-md p-stack-md bg-surface-container-lowest rounded-[24px] shadow-[0_8px_30px_rgb(62,39,35,0.03)] border border-stone-100">
+<div class="w-24 h-24 rounded-[16px] overflow-hidden flex-shrink-0">
+<img alt="Almond Croissant" class="w-full h-full object-cover" data-alt="golden flaky almond croissant topped with powdered sugar and sliced almonds on a minimalist ceramic plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7hRRRGdCqWOt02FN2BtmlfeL5LHFChMsQTAvNnd3vz5wk4UxT7p8c8SUbIL-yLP3BhAnxWrfs4n25ndo3P05C5XRpUaeEelFLEosDAQvoePaMv2ZCF3f-cw8blAVZtQkmUUiaAZkagZT-6JNmeoqLtqJUqCgrDNgtcAgmE-or52Euj0_imrZFemekzX3UEfeew6l7rNfkW5nz3IpF6pHHWUWahhqCEu-jxCWLNhsLtFRgDHhN-oT0S-UfpuZrmRejX-9RZ374OVI"/>
+</div>
+<div class="flex-1 flex flex-col justify-between py-1">
+<div>
+<h3 class="font-headline-md text-primary">Almond Croissant</h3>
+<p class="text-label-sm text-on-surface-variant">Freshly Baked • Double Butter</p>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-bold text-on-primary-fixed-variant">Rp 38.000</span>
+<div class="flex items-center gap-stack-sm bg-surface-container rounded-full px-3 py-1">
+<button class="w-6 h-6 flex items-center justify-center text-primary-container"><span class="material-symbols-outlined text-[18px]" data-icon="remove">remove</span></button>
+<span class="text-label-lg font-bold min-w-[20px] text-center">2</span>
+<button class="w-6 h-6 flex items-center justify-center text-primary-container"><span class="material-symbols-outlined text-[18px]" data-icon="add">add</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Delivery Method Section -->
+<section class="space-y-stack-md">
+<h2 class="font-headline-lg text-on-surface">Metode Pemesanan</h2>
+<div class="grid grid-cols-2 gap-gutter">
+<label class="relative cursor-pointer group">
+<input checked="" class="sr-only peer" name="delivery" type="radio"/>
+<div class="p-stack-md rounded-[24px] border-2 border-stone-100 peer-checked:border-primary-container bg-surface-container-lowest peer-checked:bg-secondary-container transition-all flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-label-lg text-primary">Ambil di Toko</span>
+<span class="text-[10px] uppercase tracking-wider text-on-surface-variant">Gratis • 15 mnt</span>
+</div>
+</label>
+<label class="relative cursor-pointer group">
+<input class="sr-only peer" name="delivery" type="radio"/>
+<div class="p-stack-md rounded-[24px] border-2 border-stone-100 peer-checked:border-primary-container bg-surface-container-lowest peer-checked:bg-secondary-container transition-all flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" data-icon="local_shipping">local_shipping</span>
+<span class="font-label-lg text-primary">Pengiriman</span>
+<span class="text-[10px] uppercase tracking-wider text-on-surface-variant">Rp 15.000 • 30 mnt</span>
+</div>
+</label>
+</div>
+</section>
+<!-- Bill Details -->
+<section class="space-y-stack-md p-container-padding bg-surface-container rounded-[32px]">
+<h2 class="font-headline-md text-primary">Rincian Pembayaran</h2>
+<div class="space-y-unit">
+<div class="flex justify-between text-body-md text-on-surface-variant">
+<span>Subtotal</span>
+<span>Rp 118.000</span>
+</div>
+<div class="flex justify-between text-body-md text-on-surface-variant">
+<span>Pajak (11%)</span>
+<span>Rp 12.980</span>
+</div>
+<div class="flex justify-between text-body-md text-on-surface-variant">
+<span>Biaya Layanan</span>
+<span>Rp 2.000</span>
+</div>
+<div class="h-[1px] bg-stone-200 my-stack-sm"></div>
+<div class="flex justify-between text-headline-md text-primary">
+<span>Total Pembayaran</span>
+<span class="font-bold">Rp 132.980</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Action Bar -->
+<div class="fixed bottom-0 left-0 w-full z-50 bg-white/90 backdrop-blur-xl border-t border-stone-100 rounded-t-[32px] px-6 pt-6 pb-10 shadow-[0_-8px_30px_rgb(62,39,35,0.06)]">
+<div class="max-w-2xl mx-auto flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="account_balance_wallet" data-weight="fill" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-label-lg text-on-surface">Saldo: Rp 245.000</span>
+</div>
+<button class="text-primary-container font-label-lg underline">Ubah</button>
+</div>
+<button class="w-full bg-primary-container text-white py-5 rounded-[20px] font-headline-md flex items-center justify-center gap-3 active:scale-95 transition-transform">
+<span>Pesan Sekarang</span>
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Bottom Navigation Component Logic (Hidden for Transactional flow per instructions) -->
+<!-- The BottomNavBar is suppressed here because this is a focused checkout screen -->
+</body></html>

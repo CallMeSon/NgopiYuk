@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "background": "#fff8f6",
+                  "surface": "#fff8f6",
+                  "on-primary-fixed-variant": "#5b403c",
+                  "secondary-fixed": "#ece0dc",
+                  "tertiary-container": "#2b2d2d",
+                  "on-primary-container": "#ae8d87",
+                  "secondary-fixed-dim": "#cfc4c0",
+                  "on-secondary": "#ffffff",
+                  "surface-dim": "#e0d8d7",
+                  "on-error": "#ffffff",
+                  "surface-tint": "#745853",
+                  "surface-container": "#f4eceb",
+                  "on-primary-fixed": "#2b1613",
+                  "outline": "#827472",
+                  "on-background": "#1e1b1a",
+                  "inverse-on-surface": "#f7efee",
+                  "primary-container": "#3e2723",
+                  "outline-variant": "#d3c3c0",
+                  "on-secondary-container": "#6b6360",
+                  "inverse-primary": "#e3beb8",
+                  "tertiary-fixed": "#e2e2e2",
+                  "on-primary": "#ffffff",
+                  "primary-fixed-dim": "#e3beb8",
+                  "on-tertiary": "#ffffff",
+                  "surface-bright": "#fff8f6",
+                  "primary-fixed": "#ffdad4",
+                  "tertiary-fixed-dim": "#c6c6c7",
+                  "tertiary": "#161819",
+                  "surface-container-lowest": "#ffffff",
+                  "on-tertiary-container": "#939494",
+                  "error": "#ba1a1a",
+                  "on-secondary-fixed": "#201a18",
+                  "on-tertiary-fixed": "#1a1c1c",
+                  "surface-container-highest": "#e8e1df",
+                  "inverse-surface": "#33302f",
+                  "error-container": "#ffdad6",
+                  "on-secondary-fixed-variant": "#4c4542",
+                  "secondary": "#655d5a",
+                  "on-tertiary-fixed-variant": "#454747",
+                  "secondary-container": "#ece0dc",
+                  "surface-container-high": "#eee6e5",
+                  "surface-variant": "#e8e1df",
+                  "on-surface": "#1e1b1a",
+                  "on-error-container": "#93000a",
+                  "primary": "#271310",
+                  "surface-container-low": "#faf2f0",
+                  "on-surface-variant": "#504442"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "stack-lg": "32px",
+                  "container-padding": "24px",
+                  "stack-sm": "8px",
+                  "section-gap": "48px",
+                  "stack-md": "16px",
+                  "gutter": "16px",
+                  "unit": "8px"
+          },
+          "fontFamily": {
+                  "headline-lg": ["Plus Jakarta Sans"],
+                  "headline-md": ["Plus Jakarta Sans"],
+                  "body-lg": ["Plus Jakarta Sans"],
+                  "headline-xl": ["Plus Jakarta Sans"],
+                  "label-lg": ["Plus Jakarta Sans"],
+                  "body-md": ["Plus Jakarta Sans"],
+                  "label-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+                  "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                  "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                  "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                  "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                  "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen font-body-md overflow-hidden">
+<!-- Immersive Background Section -->
+<div class="relative h-screen w-full flex flex-col justify-end">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 z-0">
+<img alt="Artisan coffee on wood table" class="h-full w-full object-cover" data-alt="Close-up of a beautifully poured latte art in a ceramic cup on a rustic wooden table with soft sun-drenched morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBafMDEu9Ryeig1AL_W5DAdU7Fs3x256q6uyFFHKvS8lSeT4J4OH-Hw54eoKOUTiXS7Mpj_42USDoZP232IGwRLy3LIzXWtNG4yNFOMK5LeOuZsWyiA35wXKCUqvuIQ7_8QJybIsSN6oEbT5dIhk3f-Jm6n0atGesoQ6dhhiSL7TC2HAUizx4JFng-GqeVcubA-wAqVNW5Qsv5Llp6aJ71vZBx1kzpdaM26vYhDbtC0JwEUrliwa2JurfAcFoosf7sS2RBwr8zByFA"/>
+<!-- Gradient Overlay for Legibility -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container via-primary/40 to-transparent"></div>
+</div>
+<!-- Content Overlay Container -->
+<div class="relative z-10 px-container-padding pb-24 md:pb-32 flex flex-col items-center text-center max-w-2xl mx-auto">
+<!-- Brand Identity (Optional subtle indicator) -->
+<div class="mb-stack-md">
+<span class="inline-flex items-center justify-center w-12 h-12 rounded-[16px] bg-white/10 backdrop-blur-md border border-white/20">
+<span class="material-symbols-outlined text-white text-[24px]" data-icon="coffee_maker">coffee_maker</span>
+</span>
+</div>
+<!-- Hero Text -->
+<h1 class="font-headline-xl text-white mb-stack-md leading-tight">
+        Temukan Kopi <br/> Terbaikmu
+      </h1>
+<p class="font-body-lg text-white/80 mb-stack-lg max-w-[280px] md:max-w-md mx-auto">
+        Nikmati pengalaman Slow Bar yang menenangkan dengan biji kopi pilihan terbaik.
+      </p>
+<!-- Action Area -->
+<div class="w-full flex flex-col gap-4">
+<button class="w-full py-4 bg-primary-container text-white rounded-[20px] font-headline-md shadow-[0_32px_64px_rgba(39,19,16,0.15)] flex items-center justify-center gap-2 group transition-all active:scale-95">
+          Mulai
+          <span class="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="w-full py-4 bg-white/10 backdrop-blur-xl border border-white/20 text-white rounded-[20px] font-label-lg transition-all hover:bg-white/20 active:scale-95">
+          Sudah punya akun? Masuk
+        </button>
+</div>
+<!-- Page Indicator / Stepper -->
+<div class="mt-12 flex gap-2">
+<div class="w-8 h-1.5 rounded-full bg-white"></div>
+<div class="w-2 h-1.5 rounded-full bg-white/40"></div>
+<div class="w-2 h-1.5 rounded-full bg-white/40"></div>
+</div>
+</div>
+</div>
+<!-- Note: BottomNavBar is suppressed due to "Linear/Transactional" rule for onboarding screens -->
+</body></html>
