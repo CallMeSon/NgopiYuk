@@ -115,10 +115,13 @@ class CoffeeDetailFragment : Fragment() {
 
         // Klik tombol Bagikan (Share)
         btnShare.setOnClickListener {
+            val (dynamicRating, _) = ReviewsManager.getRatingAndCount(
+                requireContext(), shop.id, shop.rating, shop.reviewCount, shop.initialReviews.size
+            )
             val shareText = getString(
                 R.string.share_text,
                 shop.name,
-                shop.rating.toString()
+                dynamicRating.toString()
             )
             val shareIntent = Intent(Intent.ACTION_SEND).apply {
                 type = "text/plain"
@@ -198,7 +201,7 @@ class CoffeeDetailFragment : Fragment() {
         )
 
         val tvRating: TextView = view.findViewById(R.id.tvDetailRating)
-        val tvReviewCount: TextView = view.findViewById(R.id.tvReviewCount)
+        val tvReviewCount: TextView = view.findViewById(R.id.tvDetailReviewCount)
 
         tvRating.text = updatedRating.toString()
         val reviewText = when {
@@ -260,51 +263,57 @@ class CoffeeDetailFragment : Fragment() {
 
     // Dialog tambah review baru menggunakan BottomSheetDialog
     private fun showAddReviewDialog(view: View, shop: CoffeeShop) {
-        val bottomSheetDialog = BottomSheetDialog(requireContext())
-        val dialogView = layoutInflater.inflate(R.layout.dialog_add_review, null)
-        bottomSheetDialog.setContentView(dialogView)
+        try {
+            val bottomSheetDialog = BottomSheetDialog(requireContext())
+            val dialogView = LayoutInflater.from(bottomSheetDialog.context)
+                .inflate(R.layout.dialog_add_review, null)
+            bottomSheetDialog.setContentView(dialogView)
 
-        val etReviewerName: android.widget.EditText = dialogView.findViewById(R.id.etReviewerName)
-        val ratingBarReview: android.widget.RatingBar = dialogView.findViewById(R.id.ratingBarReview)
-        val etReviewComment: android.widget.EditText = dialogView.findViewById(R.id.etReviewComment)
-        val btnCancelReview: View = dialogView.findViewById(R.id.btnCancelReview)
-        val btnSubmitReview: View = dialogView.findViewById(R.id.btnSubmitReview)
+            val etReviewerName: android.widget.EditText = dialogView.findViewById(R.id.etReviewerName)
+            val ratingBarReview: android.widget.RatingBar = dialogView.findViewById(R.id.ratingBarReview)
+            val etReviewComment: android.widget.EditText = dialogView.findViewById(R.id.etReviewComment)
+            val btnCancelReview: View = dialogView.findViewById(R.id.btnCancelReview)
+            val btnSubmitReview: View = dialogView.findViewById(R.id.btnSubmitReview)
 
-        btnCancelReview.setOnClickListener {
-            bottomSheetDialog.dismiss()
-        }
-
-        btnSubmitReview.setOnClickListener {
-            val name = etReviewerName.text.toString().trim()
-            val comment = etReviewComment.text.toString().trim()
-            val rating = ratingBarReview.rating
-
-            // Validasi input ulasan
-            if (name.isEmpty() || comment.isEmpty()) {
-                Snackbar.make(dialogView, getString(R.string.review_error_empty), Snackbar.LENGTH_SHORT).show()
-                return@setOnClickListener
+            btnCancelReview.setOnClickListener {
+                bottomSheetDialog.dismiss()
             }
 
-            val avatarColors = listOf("#6D4C41", "#8D6E63", "#5D4037", "#4E342E", "#A1887F", "#795548")
-            val randomColor = avatarColors.random()
+            btnSubmitReview.setOnClickListener {
+                val name = etReviewerName.text.toString().trim()
+                val comment = etReviewComment.text.toString().trim()
+                val rating = ratingBarReview.rating
 
-            val newReview = com.android.ngopiyuk.model.Review(
-                id = UUID.randomUUID().toString(),
-                name = name,
-                rating = rating,
-                comment = comment,
-                timeAgo = "Baru saja",
-                avatarColor = randomColor
-            )
+                // Validasi input ulasan
+                if (name.isEmpty() || comment.isEmpty()) {
+                    Snackbar.make(dialogView, getString(R.string.review_error_empty), Snackbar.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
 
-            ReviewsManager.addReview(requireContext(), shop.id, newReview)
-            populateReviews(view, shop)
+                val avatarColors = listOf("#6D4C41", "#8D6E63", "#5D4037", "#4E342E", "#A1887F", "#795548")
+                val randomColor = avatarColors.random()
 
-            Snackbar.make(view, getString(R.string.review_success), Snackbar.LENGTH_SHORT).show()
-            bottomSheetDialog.dismiss()
+                val newReview = com.android.ngopiyuk.model.Review(
+                    id = UUID.randomUUID().toString(),
+                    name = name,
+                    rating = rating.toDouble(),
+                    comment = comment,
+                    timeAgo = "Baru saja",
+                    avatarColor = randomColor
+                )
+
+                ReviewsManager.addReview(requireContext(), shop.id, newReview)
+                populateReviews(view, shop)
+
+                Snackbar.make(view, getString(R.string.review_success), Snackbar.LENGTH_SHORT).show()
+                bottomSheetDialog.dismiss()
+            }
+
+            bottomSheetDialog.show()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Snackbar.make(view, "Gagal membuka dialog ulasan: ${e.message}", Snackbar.LENGTH_LONG).show()
         }
-
-        bottomSheetDialog.show()
     }
 }
 

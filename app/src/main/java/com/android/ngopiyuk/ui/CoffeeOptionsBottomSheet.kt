@@ -98,10 +98,13 @@ class CoffeeOptionsBottomSheet : BottomSheetDialogFragment() {
 
         // Opsi Bagikan
         view.findViewById<LinearLayout>(R.id.optionShare).setOnClickListener {
+            val (dynamicRating, _) = com.android.ngopiyuk.utils.ReviewsManager.getRatingAndCount(
+                requireContext(), shop.id, shop.rating, shop.reviewCount, shop.initialReviews.size
+            )
             val shareText = getString(
                 R.string.share_text,
                 shop.name,
-                shop.rating.toString()
+                dynamicRating.toString()
             )
             val shareIntent = Intent(Intent.ACTION_SEND).apply {
                 type = "text/plain"
@@ -116,8 +119,14 @@ class CoffeeOptionsBottomSheet : BottomSheetDialogFragment() {
             dismiss()
             try {
                 val navController = requireActivity().findNavController(R.id.nav_host_fragment)
-                val action = com.android.ngopiyuk.fragment.DashboardFragmentDirections
-                    .actionDashboardToCoffeeDetail(shop)
+                val action = when (val parent = parentFragment) {
+                    is DashboardFragment -> com.android.ngopiyuk.fragment.DashboardFragmentDirections
+                        .actionDashboardToCoffeeDetail(shop)
+                    is FavoritesFragment -> com.android.ngopiyuk.fragment.FavoritesFragmentDirections
+                        .actionFavoritesToCoffeeDetail(shop)
+                    else -> com.android.ngopiyuk.fragment.DashboardFragmentDirections
+                        .actionDashboardToCoffeeDetail(shop)
+                }
                 navController.navigate(action)
             } catch (e: Exception) {
                 e.printStackTrace()

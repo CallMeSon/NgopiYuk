@@ -7,7 +7,7 @@ import kotlinx.parcelize.Parcelize
 data class Review(
     val id: String,
     val name: String,
-    val rating: Float,
+    val rating: Double,
     val comment: String,
     val timeAgo: String,
     val avatarColor: String

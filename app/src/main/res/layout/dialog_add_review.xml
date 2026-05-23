@@ -32,7 +32,7 @@
     <!-- Name input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilName"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/review_dialog_name_label"
@@ -75,7 +75,7 @@
     <!-- Comment input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilComment"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/review_dialog_comment_label"

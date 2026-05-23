@@ -41,7 +41,8 @@ object ReviewsManager {
 
     // Tambah ulasan baru ke baris teratas list ulasan
     fun addReview(context: Context, shopId: Int, review: Review) {
-        val current = getReviews(context, shopId, emptyList()).toMutableList()
+        val initialReviews = JsonHelper.getCoffeeShops(context).find { it.id == shopId }?.initialReviews ?: emptyList()
+        val current = getReviews(context, shopId, initialReviews).toMutableList()
         current.add(0, review)
         saveReviews(context, shopId, current)
     }
@@ -73,7 +74,7 @@ object ReviewsManager {
             return Pair(initialRating, initialCount)
         }
 
-        val addedRatingSum = addedReviews.sumOf { it.rating.toDouble() }
+        val addedRatingSum = addedReviews.sumOf { it.rating }
 
         // Hitung total rating rata-rata baru
         val totalCount = initialCount + addedCount

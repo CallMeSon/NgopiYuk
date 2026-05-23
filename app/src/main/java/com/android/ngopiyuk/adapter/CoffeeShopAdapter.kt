@@ -43,9 +43,13 @@ class CoffeeShopAdapter(
         val shop = shopList[position]
         val context = holder.itemView.context
 
+        val (dynamicRating, dynamicCount) = com.android.ngopiyuk.utils.ReviewsManager.getRatingAndCount(
+            context, shop.id, shop.rating, shop.reviewCount, shop.initialReviews.size
+        )
+
         holder.tvShopName.text = shop.name
-        holder.tvRating.text = shop.rating.toString()
-        holder.tvReviewCount.text = formatReviewCount(shop.reviewCount)
+        holder.tvRating.text = dynamicRating.toString()
+        holder.tvReviewCount.text = formatReviewCount(dynamicCount)
         holder.tvDistance.text = shop.distance
         holder.tvPriceLevel.text = shop.priceLevel
         holder.tvCategory.text = shop.category

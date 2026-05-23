@@ -13,3 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Task & Design guidelines
+DESIGN.MD
+REQUIREMENT.md
