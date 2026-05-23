@@ -23,6 +23,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import java.util.UUID
 
+// Fragment untuk menampilkan halaman detail kedai kopi
 class CoffeeDetailFragment : Fragment() {
 
     private val args: CoffeeDetailFragmentArgs by navArgs()
@@ -40,7 +41,7 @@ class CoffeeDetailFragment : Fragment() {
 
         val shop = args.coffee
 
-        // Bind data
+        // Inisialisasi komponen view UI
         val imgDetail: ImageView = view.findViewById(R.id.imgDetailCoffee)
         val tvName: TextView = view.findViewById(R.id.tvDetailName)
         val tvRating: TextView = view.findViewById(R.id.tvDetailRating)
@@ -54,7 +55,7 @@ class CoffeeDetailFragment : Fragment() {
 
         tvName.text = shop.name
         
-        // Initial binding for rating and reviews (will be dynamically overwritten by populateReviews)
+        // Setup rating dan review count awal
         tvRating.text = shop.rating.toString()
         val reviewText = when {
             shop.reviewCount >= 1000 -> "(${String.format("%.1f", shop.reviewCount / 1000.0)}k)"
@@ -66,7 +67,7 @@ class CoffeeDetailFragment : Fragment() {
         tvOpenHours.text = shop.openHours
         tvDescription.text = shop.description
 
-        // Load image
+        // Memuat gambar kedai kopi secara dinamis
         val imageName = if (shop.image.contains("/")) {
             shop.image.split("/")[1]
         } else {
@@ -77,7 +78,7 @@ class CoffeeDetailFragment : Fragment() {
         ).let { if (it == 0) android.R.drawable.ic_menu_gallery else it }
         imgDetail.setImageResource(imageResId)
 
-        // Add facility chips
+        // Membuat chip fasilitas
         shop.facilities.forEach { facility ->
             val chip = Chip(requireContext()).apply {
                 text = facility
@@ -88,14 +89,13 @@ class CoffeeDetailFragment : Fragment() {
             chipGroupFacilities.addView(chip)
         }
 
-        // Update bookmark button state
+        // Set status tombol bookmark (favorit) awal
         updateBookmarkButton(btnBookmark, FavoritesManager.isFavorite(requireContext(), shop.id))
 
-        // Bookmark button
+        // Klik tombol Bookmark (dengan konfirmasi dialog unbookmark)
         btnBookmark.setOnClickListener {
             val isCurrentlyFavorite = FavoritesManager.isFavorite(requireContext(), shop.id)
             if (isCurrentlyFavorite) {
-                // Show MaterialAlertDialog to confirm unbookmark (Opsi B)
                 MaterialAlertDialogBuilder(requireContext())
                     .setTitle("Hapus dari Favorit?")
                     .setMessage("Apakah Anda yakin ingin menghapus ${shop.name} dari daftar kedai kopi favorit Anda?")
@@ -107,14 +107,13 @@ class CoffeeDetailFragment : Fragment() {
                     }
                     .show()
             } else {
-                // Add immediately
                 FavoritesManager.toggleFavorite(requireContext(), shop.id)
                 updateBookmarkButton(btnBookmark, true)
                 Snackbar.make(view, getString(R.string.snackbar_bookmarked, shop.name), Snackbar.LENGTH_SHORT).show()
             }
         }
 
-        // Share button
+        // Klik tombol Bagikan (Share)
         btnShare.setOnClickListener {
             val shareText = getString(
                 R.string.share_text,
@@ -128,17 +127,18 @@ class CoffeeDetailFragment : Fragment() {
             startActivity(Intent.createChooser(shareIntent, "Bagikan via"))
         }
 
-        // Populate menus and reviews
+        // Muat menu signature & list ulasan
         populateSignatureMenus(view, shop.menuItems)
         populateReviews(view, shop)
 
-        // Setup write review button
+        // Tombol tulis ulasan
         val btnWriteReview: MaterialButton = view.findViewById(R.id.btnWriteReview)
         btnWriteReview.setOnClickListener {
             showAddReviewDialog(view, shop)
         }
     }
 
+    // Mengatur teks dan ikon tombol bookmark
     private fun updateBookmarkButton(button: MaterialButton, isBookmarked: Boolean) {
         if (isBookmarked) {
             button.text = "Unbookmark"
@@ -149,6 +149,7 @@ class CoffeeDetailFragment : Fragment() {
         }
     }
 
+    // Merender daftar menu Signature Brews dan Pastries
     private fun populateSignatureMenus(view: View, menuItems: List<com.android.ngopiyuk.model.MenuItem>) {
         val menuContainerSignatureBrews: LinearLayout = view.findViewById(R.id.menuContainerSignatureBrews)
         val menuContainerPastries: LinearLayout = view.findViewById(R.id.menuContainerPastries)
@@ -169,7 +170,7 @@ class CoffeeDetailFragment : Fragment() {
             tvMenuDescription.text = menuItem.description
             tvMenuPrice.text = menuItem.price
 
-            // Load menu image
+            // Memuat gambar menu
             val imageResId = requireContext().resources.getIdentifier(
                 menuItem.imageName, "drawable", requireContext().packageName
             ).let { if (it == 0) android.R.drawable.ic_menu_gallery else it }
@@ -183,6 +184,7 @@ class CoffeeDetailFragment : Fragment() {
         }
     }
 
+    // Merender daftar ulasan & kalkulasi rating rata-rata dinamis
     private fun populateReviews(view: View, shop: CoffeeShop) {
         val reviewsContainer: LinearLayout = view.findViewById(R.id.reviewsContainer)
         reviewsContainer.removeAllViews()
@@ -190,13 +192,13 @@ class CoffeeDetailFragment : Fragment() {
         val reviews = ReviewsManager.getReviews(requireContext(), shop.id, shop.initialReviews)
         val inflater = LayoutInflater.from(requireContext())
 
-        // Calculate and update dynamic average rating and count in the header views
+        // Memperbarui nilai rating & ulasan terbaru
         val (updatedRating, updatedCount) = ReviewsManager.getRatingAndCount(
             requireContext(), shop.id, shop.rating, shop.reviewCount, shop.initialReviews.size
         )
 
         val tvRating: TextView = view.findViewById(R.id.tvDetailRating)
-        val tvReviewCount: TextView = view.findViewById(R.id.tvDetailReviewCount)
+        val tvReviewCount: TextView = view.findViewById(R.id.tvReviewCount)
 
         tvRating.text = updatedRating.toString()
         val reviewText = when {
@@ -205,7 +207,7 @@ class CoffeeDetailFragment : Fragment() {
         }
         tvReviewCount.text = reviewText
 
-        // Populate list
+        // Menampilkan data review
         reviews.forEach { review ->
             val reviewView = inflater.inflate(R.layout.item_review_detail, null)
             val tvAvatarInitials: TextView = reviewView.findViewById(R.id.tvAvatarInitials)
@@ -214,14 +216,14 @@ class CoffeeDetailFragment : Fragment() {
             val tvReviewTime: TextView = reviewView.findViewById(R.id.tvReviewTime)
             val tvReviewComment: TextView = reviewView.findViewById(R.id.tvReviewComment)
 
-            // Avatar Initials
+            // Setup inisial nama avatar
             val initials = review.name.split(" ")
                 .mapNotNull { it.firstOrNull() }
                 .joinToString("")
                 .uppercase()
             tvAvatarInitials.text = if (initials.length > 2) initials.substring(0, 2) else initials
 
-            // Avatar Background Color
+            // Setup warna background avatar
             try {
                 val colorInt = android.graphics.Color.parseColor(review.avatarColor)
                 cardAvatar.setCardBackgroundColor(colorInt)
@@ -233,7 +235,7 @@ class CoffeeDetailFragment : Fragment() {
             tvReviewTime.text = review.timeAgo
             tvReviewComment.text = review.comment
 
-            // Star icons binding
+            // Menampilkan jumlah bintang rating
             val stars = listOf<ImageView>(
                 reviewView.findViewById(R.id.imgStar1),
                 reviewView.findViewById(R.id.imgStar2),
@@ -256,6 +258,7 @@ class CoffeeDetailFragment : Fragment() {
         }
     }
 
+    // Dialog tambah review baru menggunakan BottomSheetDialog
     private fun showAddReviewDialog(view: View, shop: CoffeeShop) {
         val bottomSheetDialog = BottomSheetDialog(requireContext())
         val dialogView = layoutInflater.inflate(R.layout.dialog_add_review, null)
@@ -276,12 +279,12 @@ class CoffeeDetailFragment : Fragment() {
             val comment = etReviewComment.text.toString().trim()
             val rating = ratingBarReview.rating
 
+            // Validasi input ulasan
             if (name.isEmpty() || comment.isEmpty()) {
                 Snackbar.make(dialogView, getString(R.string.review_error_empty), Snackbar.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // Generate a random pastel color for the new avatar
             val avatarColors = listOf("#6D4C41", "#8D6E63", "#5D4037", "#4E342E", "#A1887F", "#795548")
             val randomColor = avatarColors.random()
 
@@ -295,8 +298,6 @@ class CoffeeDetailFragment : Fragment() {
             )
 
             ReviewsManager.addReview(requireContext(), shop.id, newReview)
-            
-            // Dynamic UI refresh
             populateReviews(view, shop)
 
             Snackbar.make(view, getString(R.string.review_success), Snackbar.LENGTH_SHORT).show()

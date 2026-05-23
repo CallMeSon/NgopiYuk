@@ -20,13 +20,5 @@
             android:id="@+id/favoritesFragment"
             android:icon="@android:drawable/btn_star_big_on"
             android:title="Bookmark" />
-        <item
-            android:id="@+id/settingsFragment"
-            android:icon="@android:drawable/ic_menu_preferences"
-            android:title="@string/nav_settings" />
-        <item
-            android:id="@+id/aboutFragment"
-            android:icon="@android:drawable/ic_menu_info_details"
-            android:title="@string/nav_about" />
     </group>
 </menu>

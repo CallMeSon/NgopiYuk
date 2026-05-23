@@ -14,6 +14,7 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
+// Activity utama aplikasi (Single Activity Architecture)
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -27,7 +28,6 @@ class MainActivity : AppCompatActivity() {
         val toolbar: MaterialToolbar = findViewById(R.id.topAppBar)
         setSupportActionBar(toolbar)
 
-        // Setup DrawerLayout
         drawerLayout = findViewById(R.id.drawer_layout)
 
         // Inisialisasi Navigation Component
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
-        // Top-level destinations (tampil hamburger icon, bukan back arrow)
+        // Tentukan halaman utama yang tidak menampilkan tombol back (hamburger icon)
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.dashboardFragment,
@@ -48,21 +48,17 @@ class MainActivity : AppCompatActivity() {
             drawerLayout
         )
 
-        // Hubungkan Toolbar dengan NavController
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        // Hubungkan NavigationView (Drawer) dengan NavController
+        // Hubungkan Navigation Drawer dengan NavController
         val navView: NavigationView = findViewById(R.id.nav_view)
         navView.setupWithNavController(navController)
 
-        // Hubungkan BottomNavigationView dengan NavController
+        // Hubungkan Bottom Navigation dengan NavController
         val bottomNav: BottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNav.setupWithNavController(navController)
-        bottomNav.itemActiveIndicatorColor = android.content.res.ColorStateList.valueOf(
-            resources.getColor(R.color.nav_active_indicator, theme)
-        )
 
-        // Sembunyikan/tampilkan BottomNav berdasarkan destination
+        // Tampilkan/sembunyikan BottomNav secara dinamis sesuai halaman aktif
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.dashboardFragment,
@@ -77,11 +73,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // Menggambar menu pilihan di toolbar
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.options_menu, menu)
         return true
     }
 
+    // Aksi ketika item menu toolbar diklik
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -100,6 +98,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // Aksi ketika tombol up/back di toolbar ditekan
     override fun onSupportNavigateUp(): Boolean {
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment

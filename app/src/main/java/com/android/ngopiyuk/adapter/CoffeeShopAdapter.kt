@@ -11,6 +11,7 @@ import com.android.ngopiyuk.R
 import com.android.ngopiyuk.model.CoffeeShop
 import com.android.ngopiyuk.utils.FavoritesManager
 
+// Adapter RecyclerView untuk menampilkan daftar kedai kopi
 class CoffeeShopAdapter(
     private var shopList: List<CoffeeShop>,
     private val onItemClick: (CoffeeShop) -> Unit,
@@ -18,6 +19,7 @@ class CoffeeShopAdapter(
     private val onBookmarkChanged: ((CoffeeShop, Boolean) -> Unit)? = null
 ) : RecyclerView.Adapter<CoffeeShopAdapter.ShopViewHolder>() {
 
+    // View Holder untuk menampung referensi view item card
     class ShopViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imgShop: ImageView = view.findViewById(R.id.imgShop)
         val tvShopName: TextView = view.findViewById(R.id.tvShopName)
@@ -35,6 +37,7 @@ class CoffeeShopAdapter(
         return ShopViewHolder(view)
     }
 
+    // Mengikat data kedai kopi ke elemen UI item card
     @SuppressLint("DiscouragedApi")
     override fun onBindViewHolder(holder: ShopViewHolder, position: Int) {
         val shop = shopList[position]
@@ -47,7 +50,7 @@ class CoffeeShopAdapter(
         holder.tvPriceLevel.text = shop.priceLevel
         holder.tvCategory.text = shop.category
 
-        // Load image
+        // Memuat Gambar dari nama drawable
         val imageName = if (shop.image.contains("/")) {
             shop.image.split("/")[1]
         } else {
@@ -58,11 +61,11 @@ class CoffeeShopAdapter(
         ).let { if (it == 0) android.R.drawable.ic_menu_gallery else it }
         holder.imgShop.setImageResource(imageResId)
 
-        // Bookmark state
+        // Set status ikon bookmark (aktif/nonaktif)
         val isFav = FavoritesManager.isFavorite(context, shop.id)
         updateBookmarkIcon(holder.btnBookmark, isFav)
 
-        // Bookmark click
+        // Klik tombol Bookmark (dengan konfirmasi unbookmark)
         holder.btnBookmark.setOnClickListener {
             val isCurrentlyFavorite = FavoritesManager.isFavorite(context, shop.id)
             if (isCurrentlyFavorite) {
@@ -83,12 +86,12 @@ class CoffeeShopAdapter(
             }
         }
 
-        // Item click → navigate to detail
+        // Klik biasa -> Masuk detail kedai kopi
         holder.itemView.setOnClickListener {
             onItemClick(shop)
         }
 
-        // Long press → show bottom sheet
+        // Klik lama -> Buka bottom sheet pilihan
         holder.itemView.setOnLongClickListener {
             onItemLongClick(shop)
             true
@@ -97,12 +100,14 @@ class CoffeeShopAdapter(
 
     override fun getItemCount(): Int = shopList.size
 
+    // Memperbarui list data kedai kopi secara dinamis
     @SuppressLint("NotifyDataSetChanged")
     fun updateList(newList: List<CoffeeShop>) {
         shopList = newList
         notifyDataSetChanged()
     }
 
+    // Update visual ikon bookmark
     private fun updateBookmarkIcon(imageView: ImageView, isBookmarked: Boolean) {
         if (isBookmarked) {
             imageView.setImageResource(android.R.drawable.btn_star_big_on)
@@ -117,6 +122,7 @@ class CoffeeShopAdapter(
         }
     }
 
+    // Format jumlah review (misal: 1500 -> 1.5k)
     private fun formatReviewCount(count: Int): String {
         return when {
             count >= 1000 -> "(${String.format("%.1f", count / 1000.0)}k)"
