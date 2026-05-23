@@ -1,6 +1,6 @@
-# ☕ NgopiYuk - Boutique Coffee Shop Discovery & Ordering Application
+# ☕ NgopiYuk - Boutique Coffee Shop Discovery Application
 
-Selamat datang di **NgopiYuk**! 🌟 Sebuah aplikasi mobile berbasis Android yang dirancang khusus untuk mempermudah para penikmat kopi dan penjelajah perkotaan dalam mencari, mengeksplorasi, serta memesan kopi dari berbagai kedai kopi butik (*boutique coffee shops*) terbaik di sekitar mereka.
+Selamat datang di **NgopiYuk**! 🌟 Sebuah aplikasi mobile berbasis Android yang dirancang khusus untuk mempermudah para penikmat kopi dan penjelajah perkotaan dalam mencari dan mengeksplorasi berbagai kedai kopi butik (*boutique coffee shops*) terbaik di sekitar mereka.
 
 Aplikasi ini tidak hanya fungsional, tetapi juga dibangun dengan estetika **Modern-Organic** premium yang terinspirasi dari kehangatan, aroma, dan nuansa kedai kopi butik (menggunakan warna tanah, espresso, crema, dan matcha).
 
@@ -33,14 +33,16 @@ Aplikasi ini diimplementasikan dengan mengikuti panduan ketat dari [DESIGN.MD](f
     *   Daftar menu andalan lengkap dengan harga dan rating.
 3.  **Sistem Review & Ulasan Pengguna (User Reviews)**
     *   Membaca ulasan dari pelanggan lain.
-    *   Menambahkan ulasan atau ulasan baru secara instan melalui dialog ulasan interaktif beserta bintang rating dinamis.
-4.  **Kustomisasi & Pemesanan Kopi (Custom Coffee Order)**
-    *   Fitur kustomisasi pesanan kopi melalui *interactive bottom sheet* (opsi panas/dingin, tingkat kemanisan, ukuran cup).
-5.  **Daftar Favorit (Bookmarks/Favorites)**
+    *   Menambahkan ulasan baru secara instan melalui modal ulasan interaktif beserta bintang rating dinamis.
+    *   **Kalkulasi Rating Dinamis**: Mengintegrasikan rating bawaan dengan ulasan baru lokal dan memperbarui skor serta total ulasan secara instan pada header halaman detail kafe via `ReviewsManager`.
+4.  **Daftar Favorit (Bookmarks/Favorites) & Konfirmasi Unbookmark**
     *   Simpan kedai kopi favorit Anda untuk diakses kembali dengan cepat lewat tab *Favorites* khusus.
-6.  **Profil & Pengaturan Pengguna (Profile & Customization)**
-    *   Menampilkan statistik aktivitas pengguna (jumlah ulasan, kedai kopi favorit yang disimpan).
-    *   Pengaturan preferensi aplikasi.
+    *   **Opsi B: MaterialAlertDialog Unbookmark**: Ketika pengguna melepas bookmark (unbookmark) di halaman detail, card list, maupun long-press bottom sheet, aplikasi akan memunculkan dialog konfirmasi Material3 sebelum menghapus data.
+    *   **Dinamis Empty State**: Halaman *Favorites* secara otomatis mendeteksi dan melakukan refresh instan untuk memunculkan ilustrasi empty state jika seluruh kafe telah di-unbookmark.
+5.  **Profil & Statistik Terbagi (Opsi A - Split Layout)**
+    *   **TabLayout & ViewPager2**: Mengimplementasikan navigasi horizontal di halaman Profil yang membagi informasi menjadi dua tab setara:
+        *   **Tab Info**: Statistik profil user (skor loyalty points, level keanggotaan, total ulasan, dsb.) beserta opsi menu bantuan.
+        *   **Tab Vouchers**: Daftar vertikal yang scrollable menampilkan voucher promo aktif milik pengguna yang siap diklaim.
 
 ---
 
@@ -48,12 +50,14 @@ Aplikasi ini diimplementasikan dengan mengikuti panduan ketat dari [DESIGN.MD](f
 
 Proyek ini dibangun menggunakan arsitektur **Single Activity** berbasis **Android Jetpack Navigation Component** untuk transisi layar yang mulus dan penanganan navigasi tipe data yang aman menggunakan **Safe Args**.
 
+Seluruh data statis, ulasan bawaan (*initial reviews*), dan menu andalan (*signature brews & pastries*) telah **dimigrasikan sepenuhnya ke dalam file database JSON terpadu** di folder `assets` guna menghilangkan *hardcoded boilerplate code* di Kotlin sumber.
+
 Berikut adalah struktur folder utama dalam kode sumber Kotlin:
 
 ```text
 app/src/main/java/com/android/ngopiyuk/
 │
-├── 📂 adapter          # Recycler View adapters (mis. CoffeeShopAdapter, ReviewAdapter, MenuAdapter)
+├── 📂 adapter          # Recycler View adapters (mis. CoffeeShopAdapter untuk kafe, VoucherAdapter untuk promo)
 ├── 📂 fragment         # Halaman/Layar Aplikasi (Dashboard, Detail, Pemesanan, Favorit, Profil, dsb.)
 │   ├── AboutFragment.kt
 │   ├── CoffeeDetailFragment.kt
@@ -72,9 +76,8 @@ app/src/main/java/com/android/ngopiyuk/
 └── SplashActivity.kt   # Layar pembuka aplikasi dengan micro-animation
 ```
 
-Latar belakang data kedai kopi dan katalog produk bersumber dari file JSON lokal yang disimpan di folder `assets`:
-*   `app/src/main/assets/coffee_shops.json` (Daftar kafe lengkap beserta ulasan, fasilitas, dll.)
-*   `app/src/main/assets/coffee_catalog.json` (Daftar produk kopi untuk pemesanan cepat)
+Latar belakang data kedai kopi bersumber dari file JSON lokal yang disimpan di folder `assets`:
+*   `app/src/main/assets/coffee_shops.json` (Daftar kafe lengkap beserta ulasan dinamis, fasilitas, menu hidangan, dll.)
 
 ---
 
@@ -84,8 +87,9 @@ Latar belakang data kedai kopi dan katalog produk bersumber dari file JSON lokal
 *   **Android SDK**: targetSdk 36, minSdk 32, compileSdk 36.
 *   **User Interface**: XML Layouts terintegrasi dengan **Google Material Design Components 3 (M3)**.
 *   **Navigation & Safe Args**: `androidx.navigation` untuk manajemen perpindahan halaman yang tangguh.
-*   **Data Parsing**: [Gson](https://github.com/google/gson) untuk serialisasi dan deserialisasi data kedai kopi dari file JSON aset lokal.
-*   **Manajemen Gambar**: Memuat drawable lokal secara dinamis serta kompatibilitas transisi gambar.
+*   **Data Parsing**: [Gson](https://github.com/google/gson) untuk serialisasi dan deserialisasi data kedai kopi dari database JSON lokal.
+*   **Manajemen Gambar**: Memuat drawable lokal secara dinamis menggunakan metode `getIdentifier` berbasis nama string.
+*   **Penyimpanan Lokal**: `SharedPreferences` untuk menyimpan data bookmark/favorites dan ulasan lokal buatan pengguna secara persisten.
 
 ---
 
