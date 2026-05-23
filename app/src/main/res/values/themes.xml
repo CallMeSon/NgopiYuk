@@ -1,12 +1,55 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.NgopiYuk" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <item name="colorPrimary">@color/coffee_primary</item>
-        <item name="colorSecondary">@color/coffee_accent</item>
-        <item name="android:statusBarColor">@color/coffee_dark</item>
-        <item name="android:windowBackground">@color/coffee_cream</item>
+        <!-- Primary colors from DESIGN.MD -->
+        <item name="colorPrimary">@color/nav_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">#5D4037</item>
+        <item name="colorOnPrimaryContainer">#D4ADA1</item>
+
+        <!-- Secondary colors from DESIGN.MD -->
+        <item name="colorSecondary">#5E604D</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">#E1E1C9</item>
+        <item name="colorOnSecondaryContainer">#636451</item>
+
+        <!-- Tertiary colors from DESIGN.MD -->
+        <item name="colorTertiary">#003A11</item>
+        <item name="colorOnTertiary">@color/white</item>
+        <item name="colorTertiaryContainer">#08531E</item>
+        <item name="colorOnTertiaryContainer">#80C683</item>
+
+        <!-- Surface colors from DESIGN.MD -->
+        <item name="colorSurface">#FCF9F8</item>
+        <item name="colorOnSurface">#1B1C1C</item>
+        <item name="colorSurfaceVariant">#E4E2E1</item>
+        <item name="colorOnSurfaceVariant">#504441</item>
+
+        <!-- Outline from DESIGN.MD -->
+        <item name="colorOutline">#827470</item>
+        <item name="colorOutlineVariant">#D4C3BE</item>
+
+        <!-- Error -->
+        <item name="colorError">#BA1A1A</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="colorErrorContainer">#FFDAD6</item>
+        <item name="colorOnErrorContainer">#93000A</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowBackground">@color/coffee_light</item>
     </style>
 
     <style name="Theme.NgopiYuk" parent="Base.Theme.NgopiYuk" />
+
+    <!-- Splash Screen Theme -->
+    <style name="Theme.NgopiYuk.Splash" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/splash_background</item>
+        <item name="android:statusBarColor">@color/splash_background</item>
+        <item name="android:navigationBarColor">@color/splash_background</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
 </resources>

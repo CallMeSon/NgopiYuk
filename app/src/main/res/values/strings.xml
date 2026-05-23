@@ -1,47 +1,49 @@
 <resources>
     <string name="app_name">NgopiYuk</string>
-    <string name="home_section">Katalog NgopiYuk</string>
+    <string name="splash_tagline">Temukan Tempat Ngopi Asikmu</string>
+    <string name="home_section">Nearby Coffee Shops</string>
 
     <!-- Navigation Drawer -->
-    <string name="nav_dashboard">Dashboard</string>
-    <string name="nav_pemesanan">Pemesanan</string>
+    <string name="nav_dashboard">Explore</string>
+    <string name="nav_pemesanan">Vouchers</string>
     <string name="nav_profile">Profile</string>
     <string name="nav_favorites">Favorit</string>
     <string name="nav_settings">Settings</string>
     <string name="nav_about">About</string>
     <string name="drawer_open">Buka navigasi</string>
     <string name="drawer_close">Tutup navigasi</string>
-    <string name="nav_header_subtitle">Kopi terbaik untukmu ☕</string>
+    <string name="nav_header_subtitle">Temukan tempat ngopi terbaikmu ☕</string>
 
-    <!-- Tab Categories -->
-    <string name="tab_all">Semua</string>
-    <string name="tab_hot">Panas</string>
-    <string name="tab_cold">Dingin</string>
+    <!-- Filter Categories -->
+    <string name="filter_modern">Modern</string>
+    <string name="filter_traditional">Traditional</string>
+    <string name="filter_work_friendly">Work-friendly</string>
+    <string name="search_hint">Find your coffee haven…</string>
+    <string name="section_nearby">Nearby Coffee Shops</string>
 
     <!-- Detail -->
-    <string name="detail_add_order">Tambah ke Pesanan</string>
-    <string name="detail_delete">Hapus</string>
+    <string name="detail_bookmark">Bookmark</string>
+    <string name="detail_share">Bagikan</string>
     <string name="detail_rating">Rating</string>
-    <string name="detail_type">Tipe</string>
-    <string name="detail_price_format">Rp %,d</string>
+    <string name="detail_address">Alamat</string>
+    <string name="detail_open_hours">Jam Buka</string>
+    <string name="detail_facilities">Fasilitas</string>
+    <string name="detail_description">Deskripsi</string>
 
     <!-- Snackbar -->
-    <string name="snackbar_added_order">%s ditambahkan ke pesanan!</string>
-    <string name="snackbar_removed_favorite">%s dihapus dari favorit</string>
+    <string name="snackbar_bookmarked">%s berhasil di-bookmark!</string>
+    <string name="snackbar_unbookmarked">%s berhasil di-unbookmark!</string>
     <string name="snackbar_added_favorite">%s ditambahkan ke favorit!</string>
+    <string name="snackbar_removed_favorite">%s berhasil di-unbookmark!</string>
     <string name="snackbar_undo">Batal</string>
 
     <!-- Dialog -->
-    <string name="dialog_delete_title">Hapus Kopi?</string>
-    <string name="dialog_delete_message">Apakah kamu yakin ingin menghapus %s dari daftar?</string>
-    <string name="dialog_delete_confirm">Hapus</string>
     <string name="dialog_cancel">Batal</string>
-    <string name="dialog_deleted_success">%s berhasil dihapus</string>
 
     <!-- Bottom Sheet -->
     <string name="bottom_sheet_title">Opsi</string>
-    <string name="bottom_sheet_add_favorite">Tambah ke Favorit</string>
-    <string name="bottom_sheet_remove_favorite">Hapus dari Favorit</string>
+    <string name="bottom_sheet_add_favorite">Bookmark Tempat Ini</string>
+    <string name="bottom_sheet_remove_favorite">Unbookmark</string>
     <string name="bottom_sheet_share">Bagikan</string>
     <string name="bottom_sheet_view_detail">Lihat Detail</string>
 
@@ -63,21 +65,47 @@
 
     <!-- About -->
     <string name="about_title">Tentang NgopiYuk</string>
-    <string name="about_version">Versi 1.0</string>
-    <string name="about_description">NgopiYuk adalah aplikasi katalog dan pemesanan kopi terbaik. Nikmati berbagai pilihan kopi berkualitas dengan mudah dan cepat.</string>
+    <string name="about_version">Versi 2.0</string>
+    <string name="about_description">NgopiYuk adalah aplikasi katalog tempat ngopi terbaik. Temukan kedai kopi terdekat dengan suasana yang kamu cari, dari modern hingga tradisional.</string>
     <string name="about_developer">Dikembangkan oleh Tim NgopiYuk</string>
     <string name="about_copyright">© 2026 NgopiYuk. All rights reserved.</string>
 
-    <!-- Favorites -->
-    <string name="favorites_title">Kopi Favoritmu</string>
-    <string name="favorites_empty">Belum ada kopi favorit.\nTambahkan dari katalog!</string>
+    <!-- Favorites / Bookmarks -->
+    <string name="favorites_title">Tempat Ngopi Tersimpan</string>
+    <string name="favorites_empty">Belum ada tempat ngopi tersimpan.\nBookmark dari halaman Explore!</string>
 
-    <!-- Pemesanan -->
-    <string name="pemesanan_title">Halaman Pemesanan</string>
+    <!-- Vouchers -->
+    <string name="vouchers_title">Vouchers \u0026 Promo</string>
+    <string name="vouchers_empty">Belum ada voucher tersedia saat ini.</string>
 
     <!-- Profile -->
-    <string name="profile_title">Halaman Profil Pengguna</string>
+    <string name="profile_title">Profil Saya</string>
+    <string name="profile_stat_bookmarks">Bookmarked</string>
+    <string name="profile_stat_vouchers">Vouchers</string>
+    <string name="profile_stat_points">Points</string>
+    <string name="profile_menu_settings">Pengaturan Aplikasi</string>
+    <string name="profile_menu_favorites">Favorit Tersimpan</string>
+    <string name="profile_menu_vouchers">Voucher Saya</string>
+    <string name="profile_menu_about">Tentang Aplikasi</string>
+    <string name="profile_default_name">Kopi Lover</string>
+    <string name="profile_default_email">kopilover@ngopiyuk.com</string>
+    <string name="profile_default_phone">+62 812-3456-7890</string>
 
     <!-- Share -->
-    <string name="share_text">Coba %s di NgopiYuk! Harga cuma Rp %,d. Rating: %s ⭐</string>
+    <string name="share_text">Yuk ngopi di %1$s! Rating: %2$s ⭐ — Cek di NgopiYuk!</string>
+
+    <!-- Signature Menu & Reviews -->
+    <string name="detail_signature_brews">Signature Brews</string>
+    <string name="detail_pastries">Pastries</string>
+    <string name="detail_reviews">Reviews</string>
+    <string name="detail_write_review">Tulis Ulasan</string>
+    <string name="review_dialog_title">Tulis Ulasan</string>
+    <string name="review_dialog_name_label">Nama Anda</string>
+    <string name="review_dialog_name_hint">Masukkan nama Anda</string>
+    <string name="review_dialog_comment_label">Ulasan Anda</string>
+    <string name="review_dialog_comment_hint">Tulis ulasan Anda di sini…</string>
+    <string name="review_dialog_submit">Kirim</string>
+    <string name="review_dialog_cancel">Batal</string>
+    <string name="review_success">Ulasan berhasil ditambahkan!</string>
+    <string name="review_error_empty">Nama dan ulasan tidak boleh kosong!</string>
 </resources>

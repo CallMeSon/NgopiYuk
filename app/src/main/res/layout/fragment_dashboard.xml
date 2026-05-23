@@ -6,23 +6,132 @@
     android:background="@color/coffee_light"
     android:orientation="vertical">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
+    <!-- Search Bar -->
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        app:tabIndicatorColor="@color/coffee_primary"
-        app:tabSelectedTextColor="@color/coffee_primary"
-        app:tabTextColor="@color/gray_text"
-        app:tabMode="fixed"
-        app:tabGravity="fill"
-        app:tabIndicatorAnimationMode="elastic"
-        app:tabIndicatorFullWidth="false" />
+        android:layout_marginStart="@dimen/container_padding"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/container_padding"
+        app:cardBackgroundColor="@color/search_bg"
+        app:cardCornerRadius="@dimen/search_bar_radius"
+        app:cardElevation="0dp"
+        app:strokeWidth="0dp">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPager"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/search_bar_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/margin_medium"
+            android:paddingEnd="@dimen/margin_medium">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:contentDescription="Search"
+                android:src="@android:drawable/ic_menu_search"
+                app:tint="@color/search_hint" />
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/margin_small"
+                android:background="@android:color/transparent"
+                android:hint="@string/search_hint"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textColor="@color/coffee_dark"
+                android:textColorHint="@color/search_hint"
+                android:textSize="@dimen/text_body" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Filter Chips -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/container_padding"
+        android:paddingEnd="@dimen/container_padding"
+        android:scrollbars="none">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            app:selectionRequired="false">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipModern"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/chip_height"
+                android:text="@string/filter_modern"
+                android:checkable="true"
+                app:chipBackgroundColor="@color/chip_unselected_bg"
+                app:chipStrokeColor="@color/chip_stroke"
+                app:chipStrokeWidth="1dp"
+                app:chipCornerRadius="@dimen/chip_corner_radius"
+                app:checkedIconVisible="false" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipTraditional"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/chip_height"
+                android:text="@string/filter_traditional"
+                android:checkable="true"
+                app:chipBackgroundColor="@color/chip_unselected_bg"
+                app:chipStrokeColor="@color/chip_stroke"
+                app:chipStrokeWidth="1dp"
+                app:chipCornerRadius="@dimen/chip_corner_radius"
+                app:checkedIconVisible="false" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipWorkFriendly"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/chip_height"
+                android:text="@string/filter_work_friendly"
+                android:checkable="true"
+                app:chipBackgroundColor="@color/chip_unselected_bg"
+                app:chipStrokeColor="@color/chip_stroke"
+                app:chipStrokeWidth="1dp"
+                app:chipCornerRadius="@dimen/chip_corner_radius"
+                app:checkedIconVisible="false" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+    </HorizontalScrollView>
+
+    <!-- Section Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/container_padding"
+        android:layout_marginTop="@dimen/margin_large"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:text="@string/section_nearby"
+        android:textColor="@color/coffee_dark"
+        android:textSize="@dimen/text_subheader"
+        android:textStyle="bold" />
+
+    <!-- Coffee Shop List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCoffeeShops"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/margin_small"
+        android:paddingEnd="@dimen/margin_small"
+        android:paddingBottom="@dimen/margin_medium" />
 
 </LinearLayout>

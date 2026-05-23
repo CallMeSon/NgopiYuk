@@ -10,4 +10,43 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray_text">#757575</color>
+
+    <!-- Category Badge Colors -->
+    <color name="badge_green_bg">#E8F5E9</color>
+    <color name="badge_green_text">#2E7D32</color>
+    <color name="badge_brown_bg">#EFEBE9</color>
+    <color name="badge_brown_text">#5D4037</color>
+
+    <!-- Search Bar -->
+    <color name="search_bg">#F0EDED</color>
+    <color name="search_hint">#827470</color>
+
+    <!-- Chip Filter -->
+    <color name="chip_selected_bg">#442A22</color>
+    <color name="chip_selected_text">#FFFFFF</color>
+    <color name="chip_unselected_bg">#FFFFFF</color>
+    <color name="chip_unselected_text">#4E342E</color>
+    <color name="chip_stroke">#D4C3BE</color>
+
+    <!-- Bookmark Icon -->
+    <color name="bookmark_active">#6D4C41</color>
+    <color name="bookmark_inactive">#D4C3BE</color>
+
+    <!-- Splash Screen Colors (from DESIGN.MD) -->
+    <color name="splash_background">#FCF9F8</color>
+    <color name="splash_text_primary">#442A22</color>
+    <color name="splash_text_secondary">#827470</color>
+    <color name="splash_dot_active">#827470</color>
+    <color name="splash_dot_inactive">#D4C3BE</color>
+
+    <!-- Voucher Colors -->
+    <color name="voucher_bg">#FFF3E0</color>
+    <color name="voucher_accent">#E65100</color>
+
+    <!-- Navigation Colors (from DESIGN.MD) -->
+    <color name="nav_primary">#442A22</color>
+    <color name="nav_inactive">#827470</color>
+    <color name="nav_active_indicator">#FFDBD0</color>
+    <color name="nav_surface">#FCF9F8</color>
+    <color name="drawer_active_bg">#FFDBD0</color>
 </resources>

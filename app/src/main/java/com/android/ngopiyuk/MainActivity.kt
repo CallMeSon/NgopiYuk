@@ -58,6 +58,9 @@ class MainActivity : AppCompatActivity() {
         // Hubungkan BottomNavigationView dengan NavController
         val bottomNav: BottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNav.setupWithNavController(navController)
+        bottomNav.itemActiveIndicatorColor = android.content.res.ColorStateList.valueOf(
+            resources.getColor(R.color.nav_active_indicator, theme)
+        )
 
         // Sembunyikan/tampilkan BottomNav berdasarkan destination
         navController.addOnDestinationChangedListener { _, destination, _ ->

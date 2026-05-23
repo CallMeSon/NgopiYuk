@@ -1,0 +1,386 @@
+[
+  {
+    "id": 1,
+    "name": "Roast & Revel",
+    "description": "Kedai kopi modern dengan konsep industrial yang menyajikan specialty coffee dari biji pilihan Nusantara. Suasana nyaman dengan aroma kopi yang khas menjadikan tempat ini favorit para coffee enthusiast.",
+    "rating": 4.6,
+    "reviewCount": 1200,
+    "distance": "0.8 km",
+    "priceLevel": "$$",
+    "category": "FAST ROAST",
+    "tags": ["Modern", "Work-friendly"],
+    "image": "drawable/img_roast_revel",
+    "address": "Jl. Sudirman No. 45, Jakarta Selatan",
+    "openHours": "07:00 - 22:00",
+    "facilities": ["Wi-Fi", "Power Outlet", "Parking", "Meeting Room"],
+    "menuItems": [
+      {
+        "name": "Senja Latte",
+        "description": "House blend espresso with oat",
+        "price": "Rp 35.000",
+        "category": "Signature Brews",
+        "imageName": "img_cappuccino"
+      },
+      {
+        "name": "Midnight Cold Brew",
+        "description": "12-hour steeped Arabica...",
+        "price": "Rp 42.000",
+        "category": "Signature Brews",
+        "imageName": "img_coldbrew"
+      },
+      {
+        "name": "Butter Croissant",
+        "description": "Flaky, French-style butter...",
+        "price": "Rp 28.000",
+        "category": "Pastries",
+        "imageName": "img_velvet"
+      }
+    ],
+    "initialReviews": [
+      {
+        "id": "uuid-1-1",
+        "name": "Jane Doe",
+        "rating": 5.0,
+        "comment": "The atmosphere here is unmatched. Perfect place for working or just chilling with friends. The Senja Latte is a must-try!",
+        "timeAgo": "2 days ago",
+        "avatarColor": "#6D4C41"
+      },
+      {
+        "id": "uuid-1-2",
+        "name": "Adi Surya",
+        "rating": 4.0,
+        "comment": "Great coffee, but it can get quite crowded during the weekends. Recommend coming during weekdays for the best experience.",
+        "timeAgo": "1 week ago",
+        "avatarColor": "#8D6E63"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Urban Brew",
+    "description": "Tempat ngopi dengan suasana tenang dan cozy, cocok untuk bekerja atau bersantai. Menu andalan mereka adalah cold brew yang diseduh selama 18 jam untuk rasa yang sempurna.",
+    "rating": 4.7,
+    "reviewCount": 850,
+    "distance": "1.5 km",
+    "priceLevel": "$",
+    "category": "QUIET ZONE",
+    "tags": ["Modern", "Work-friendly"],
+    "image": "drawable/img_urban_brew",
+    "address": "Jl. Kemang Raya No. 12, Jakarta Selatan",
+    "openHours": "08:00 - 23:00",
+    "facilities": ["Wi-Fi", "Power Outlet", "Outdoor Seating"],
+    "menuItems": [
+      {
+        "name": "Cold Brew Special",
+        "description": "18-hour cold brewed specialty coffee",
+        "price": "Rp 38.000",
+        "category": "Signature Brews",
+        "imageName": "img_coldbrew"
+      },
+      {
+        "name": "Caramel Macchiato",
+        "description": "Espresso with milk and sweet caramel",
+        "price": "Rp 45.000",
+        "category": "Signature Brews",
+        "imageName": "img_caramel"
+      },
+      {
+        "name": "Almond Croissant",
+        "description": "Flaky pastry topped with crispy almonds",
+        "price": "Rp 32.000",
+        "category": "Pastries",
+        "imageName": "img_velvet"
+      }
+    ],
+    "initialReviews": [
+      {
+        "id": "uuid-2-1",
+        "name": "Budi Santoso",
+        "rating": 5.0,
+        "comment": "Sangat tenang, cocok sekali buat wfh. Kopi cold brew nya juara banget!",
+        "timeAgo": "3 days ago",
+        "avatarColor": "#5D4037"
+      },
+      {
+        "id": "uuid-2-2",
+        "name": "Rina Wijaya",
+        "rating": 4.5,
+        "comment": "Suasana cozy dan nyaman. Pelayanannya cepat dan ramah.",
+        "timeAgo": "5 days ago",
+        "avatarColor": "#A1887F"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Rustic Grinder",
+    "description": "Kedai kopi artisanal dengan konsep rustic yang menggunakan metode manual brewing. Setiap cangkir kopi diracik dengan penuh perhatian oleh barista berpengalaman.",
+    "rating": 4.5,
+    "reviewCount": 2100,
+    "distance": "2.1 km",
+    "priceLevel": "$$",
+    "category": "ARTISANAL",
+    "tags": ["Traditional"],
+    "image": "drawable/img_rustic_grinder",
+    "address": "Jl. Braga No. 88, Bandung",
+    "openHours": "09:00 - 21:00",
+    "facilities": ["Parking", "Live Music", "Outdoor Seating"],
+    "menuItems": [
+      {
+        "name": "V60 Gayo",
+        "description": "Manual brew with specialty Gayo beans",
+        "price": "Rp 30.000",
+        "category": "Signature Brews",
+        "imageName": "img_cappuccino"
+      },
+      {
+        "name": "Aeropress Special",
+        "description": "Clean and smooth body profile",
+        "price": "Rp 34.000",
+        "category": "Signature Brews",
+        "imageName": "img_coldbrew"
+      },
+      {
+        "name": "Cinnamon Roll",
+        "description": "Warm cinnamon pastry with soft glaze",
+        "price": "Rp 25.000",
+        "category": "Pastries",
+        "imageName": "img_velvet"
+      }
+    ],
+    "initialReviews": [
+      {
+        "id": "uuid-3-1",
+        "name": "Hendra Wijaya",
+        "rating": 4.5,
+        "comment": "Metode manual brew nya mantap, baristanya sangat berpengetahuan tentang kopi.",
+        "timeAgo": "4 days ago",
+        "avatarColor": "#4E342E"
+      },
+      {
+        "id": "uuid-3-2",
+        "name": "Siti Rahma",
+        "rating": 4.0,
+        "comment": "Tempatnya asik buat nongkrong sore-sore. Cinnamon roll nya enak manisnya pas.",
+        "timeAgo": "2 weeks ago",
+        "avatarColor": "#8D6E63"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Bean & Beyond",
+    "description": "Coffee shop minimalis dengan interior Skandinavia yang bersih dan modern. Terkenal dengan latte art yang cantik dan pastry homemade yang lezat.",
+    "rating": 4.8,
+    "reviewCount": 3200,
+    "distance": "0.3 km",
+    "priceLevel": "$$$",
+    "category": "PREMIUM",
+    "tags": ["Modern"],
+    "image": "drawable/img_bean_beyond",
+    "address": "Jl. Senopati No. 22, Jakarta Selatan",
+    "openHours": "06:30 - 22:00",
+    "facilities": ["Wi-Fi", "Power Outlet", "Parking", "Pet Friendly"],
+    "menuItems": [
+      {
+        "name": "Bean Latte",
+        "description": "Double shot house espresso with sweet foam",
+        "price": "Rp 40.000",
+        "category": "Signature Brews",
+        "imageName": "img_cappuccino"
+      },
+      {
+        "name": "Velvet Dream",
+        "description": "Creamy, smooth vanilla infused blend",
+        "price": "Rp 44.000",
+        "category": "Signature Brews",
+        "imageName": "img_velvet"
+      },
+      {
+        "name": "Chocolate Danish",
+        "description": "Decadent chocolate center in flaky pastry",
+        "price": "Rp 30.000",
+        "category": "Pastries",
+        "imageName": "img_caramel"
+      }
+    ],
+    "initialReviews": [
+      {
+        "id": "uuid-4-1",
+        "name": "Kevin Andreas",
+        "rating": 5.0,
+        "comment": "Late art nya sangat cantik! Pastry nya juga fresh dari oven.",
+        "timeAgo": "1 day ago",
+        "avatarColor": "#6D4C41"
+      },
+      {
+        "id": "uuid-4-2",
+        "name": "Lia Lestari",
+        "rating": 4.5,
+        "comment": "Konsep minimalis Skandinavia nya sangat instagramable. Suka banget!",
+        "timeAgo": "1 week ago",
+        "avatarColor": "#A1887F"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Kopi Nusantara",
+    "description": "Kedai kopi tradisional yang menyajikan kopi khas dari berbagai daerah Indonesia. Dari kopi Gayo hingga Toraja, semua tersedia di sini dengan cita rasa autentik.",
+    "rating": 4.3,
+    "reviewCount": 670,
+    "distance": "3.0 km",
+    "priceLevel": "$",
+    "category": "TRADITIONAL",
+    "tags": ["Traditional"],
+    "image": "drawable/img_kopi_nusantara",
+    "address": "Jl. Malioboro No. 56, Yogyakarta",
+    "openHours": "07:00 - 20:00",
+    "facilities": ["Outdoor Seating", "Live Music", "Cultural Space"],
+    "menuItems": [
+      {
+        "name": "Kopi Toraja",
+        "description": "Authentic premium Toraja manual brew",
+        "price": "Rp 22.000",
+        "category": "Signature Brews",
+        "imageName": "img_cappuccino"
+      },
+      {
+        "name": "Kopi Tubruk",
+        "description": "Traditional and bold robusta coffee brew",
+        "price": "Rp 18.000",
+        "category": "Signature Brews",
+        "imageName": "img_coldbrew"
+      },
+      {
+        "name": "Singkong Goreng",
+        "description": "Crispy spiced fried cassava, perfect snack",
+        "price": "Rp 15.000",
+        "category": "Pastries",
+        "imageName": "img_velvet"
+      }
+    ],
+    "initialReviews": [
+      {
+        "id": "uuid-5-1",
+        "name": "Agus Pratama",
+        "rating": 4.5,
+        "comment": "Kopi Toraja nya mantap abis. Rasa khas nusantara yang tidak bisa bohong.",
+        "timeAgo": "6 days ago",
+        "avatarColor": "#4E342E"
+      },
+      {
+        "id": "uuid-5-2",
+        "name": "Dewi Safitri",
+        "rating": 4.0,
+        "comment": "Suka sekali dengan konsep tradisionalnya, serasa ngopi di kampung halaman.",
+        "timeAgo": "2 weeks ago",
+        "avatarColor": "#5D4037"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "WorkBrew Hub",
+    "description": "Co-working space sekaligus coffee shop dengan fasilitas lengkap untuk produktivitas. Internet cepat, ruang meeting, dan kopi berkualitas menjadi andalan tempat ini.",
+    "rating": 4.4,
+    "reviewCount": 980,
+    "distance": "1.2 km",
+    "priceLevel": "$$",
+    "category": "WORKSPACE",
+    "tags": ["Modern", "Work-friendly"],
+    "image": "drawable/img_workbrew",
+    "address": "Jl. Gatot Subroto No. 15, Jakarta Selatan",
+    "openHours": "06:00 - 00:00",
+    "facilities": ["Wi-Fi", "Power Outlet", "Meeting Room", "Printer", "Locker"],
+    "menuItems": [
+      {
+        "name": "Productivity Boost",
+        "description": "Double shot espresso over dark cold brew",
+        "price": "Rp 48.000",
+        "category": "Signature Brews",
+        "imageName": "img_coldbrew"
+      },
+      {
+        "name": "Flat White",
+        "description": "Velvety flat white with premium espresso shot",
+        "price": "Rp 38.000",
+        "category": "Signature Brews",
+        "imageName": "img_cappuccino"
+      },
+      {
+        "name": "Blueberry Muffin",
+        "description": "Soft, buttery muffin baked with blueberries",
+        "price": "Rp 26.000",
+        "category": "Pastries",
+        "imageName": "img_velvet"
+      }
+    ],
+    "initialReviews": [
+      {
+        "id": "uuid-6-1",
+        "name": "Rian Hidayat",
+        "rating": 4.5,
+        "comment": "Internetnya kencang sekali! Cocok banget buat programmer/designer kerja seharian di sini.",
+        "timeAgo": "2 days ago",
+        "avatarColor": "#6D4C41"
+      },
+      {
+        "id": "uuid-6-2",
+        "name": "Sarah Amanda",
+        "rating": 4.0,
+        "comment": "Fasilitas lengkap ada printer dan colokan melimpah. Kopi productivity boost nya bikin fokus kerja.",
+        "timeAgo": "3 days ago",
+        "avatarColor": "#8D6E63"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Beska Bean",
+    "description": "Tempat minum kopi affordable dan juga nyaman",
+    "rating": 5.0,
+    "reviewCount": 10,
+    "distance": "21 km",
+    "priceLevel": "$$",
+    "category": "WORKSPACE",
+    "tags": ["Modern", "Work-friendly"],
+    "image": "drawable/img_beska",
+    "address": "Jl. Pangkalan Jati No. 15, Jakarta Selatan",
+    "openHours": "08:00 - 22:00",
+    "facilities": ["Wi-Fi", "Power Outlet", "Meeting Room", "Printer", "Locker"],
+    "menuItems": [
+      {
+        "name": "Velvet Latte",
+        "description": "Kopi murni yang pekat dengan susu panas yang lembut",
+        "price": "Rp 20.000",
+        "category": "Signature Brews",
+        "imageName": "img_velvet"
+      },
+      {
+        "name": "Cappuccino",
+        "description": "Perpaduan sempurna espresso, susu panas, dan busa tebal",
+        "price": "Rp 28.000",
+        "category": "Signature Brews",
+        "imageName": "img_cappuccino"
+      },
+      {
+        "name": "Cinnamon Roll",
+        "description": "Warm sweet cinnamon pastry with soft glaze",
+        "price": "Rp 25.000",
+        "category": "Pastries",
+        "imageName": "img_velvet"
+      }
+    ],
+    "initialReviews": [
+      {
+        "id": "uuid-7-1",
+        "name": "Gerson S.",
+        "rating": 5.0,
+        "comment": "Tempat paling asik dan terjangkau buat ngopi bareng teman!",
+        "timeAgo": "Baru saja",
+        "avatarColor": "#6D4C41"
+      }
+    ]
+  }
+]
