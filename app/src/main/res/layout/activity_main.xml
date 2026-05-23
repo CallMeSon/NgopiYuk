@@ -44,9 +44,7 @@
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/nav_surface"
-            app:itemIconTint="@color/bottom_nav_item_color"
-            app:itemTextColor="@color/bottom_nav_item_color"
+            android:background="@color/coffee_light"
             app:elevation="8dp"
             app:menu="@menu/bottom_nav_menu" />
 
@@ -58,11 +56,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        android:background="@color/nav_surface"
-        app:itemIconTint="@color/drawer_nav_item_color"
-        app:itemTextColor="@color/drawer_nav_item_color"
         app:itemShapeAppearance="@style/ShapeAppearance.Material3.Corner.Medium"
-        app:itemShapeFillColor="@color/drawer_active_bg"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/drawer_menu" />
 

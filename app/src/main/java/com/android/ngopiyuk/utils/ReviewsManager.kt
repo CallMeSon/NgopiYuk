@@ -6,6 +6,7 @@ import com.android.ngopiyuk.model.Review
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
+// Pengelola data review kedai kopi (Singleton) menggunakan SharedPreferences
 object ReviewsManager {
 
     private const val PREFS_NAME = "ngopiyuk_reviews_pref"
@@ -15,7 +16,7 @@ object ReviewsManager {
         return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
     }
 
-    // Load reviews (loads from SharedPreferences, fallback to initial list from JSON if empty)
+    // Ambil ulasan dari SharedPreferences (fallback ke initialReviews bawaan)
     fun getReviews(context: Context, shopId: Int, initialReviews: List<Review>): List<Review> {
         val prefs = getPrefs(context)
         val key = KEY_REVIEW_PREFIX + shopId
@@ -30,7 +31,7 @@ object ReviewsManager {
         }
     }
 
-    // Save reviews to SharedPreferences
+    // Simpan daftar ulasan ke SharedPreferences
     private fun saveReviews(context: Context, shopId: Int, reviews: List<Review>) {
         val prefs = getPrefs(context)
         val key = KEY_REVIEW_PREFIX + shopId
@@ -38,14 +39,14 @@ object ReviewsManager {
         prefs.edit().putString(key, json).apply()
     }
 
-    // Add a new review
+    // Tambah ulasan baru ke baris teratas list ulasan
     fun addReview(context: Context, shopId: Int, review: Review) {
         val current = getReviews(context, shopId, emptyList()).toMutableList()
-        current.add(0, review) // Add to top
+        current.add(0, review)
         saveReviews(context, shopId, current)
     }
 
-    // Dynamically calculate rating and review count based on initial data + new user reviews
+    // Hitung rating rata-rata dan total ulasan secara dinamis (menggabungkan review bawaan + review user)
     fun getRatingAndCount(
         context: Context,
         shopId: Int,
@@ -64,7 +65,7 @@ object ReviewsManager {
             emptyList()
         }
 
-        // Calculate count of user-added reviews
+        // Dapatkan ulasan baru buatan user
         val addedReviews = allReviews.dropLast(initialMockSize)
         val addedCount = addedReviews.size
 
@@ -72,15 +73,14 @@ object ReviewsManager {
             return Pair(initialRating, initialCount)
         }
 
-        // Sum up added ratings
         val addedRatingSum = addedReviews.sumOf { it.rating.toDouble() }
 
-        // Compute total sum and count
+        // Hitung total rating rata-rata baru
         val totalCount = initialCount + addedCount
         val totalRatingSum = (initialRating * initialCount) + addedRatingSum
         val finalRating = totalRatingSum / totalCount
 
-        // Format to 1 decimal place
+        // Bulatkan 1 tempat desimal
         val formattedRating = Math.round(finalRating * 10.0) / 10.0
         return Pair(formattedRating, totalCount)
     }
