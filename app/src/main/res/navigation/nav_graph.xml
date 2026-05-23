@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/dashboardFragment"
         android:name="com.android.ngopiyuk.fragment.DashboardFragment"
-        android:label="Dashboard"
+        android:label="Explore"
         tools:layout="@layout/fragment_dashboard">
         <action
             android:id="@+id/action_dashboard_to_coffeeDetail"
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/pemesananFragment"
         android:name="com.android.ngopiyuk.fragment.PemesananFragment"
-        android:label="Pemesanan"
+        android:label="Vouchers"
         tools:layout="@layout/fragment_pemesanan" />
 
     <fragment
@@ -30,7 +30,7 @@
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.android.ngopiyuk.fragment.FavoritesFragment"
-        android:label="Favorit"
+        android:label="Bookmark"
         tools:layout="@layout/fragment_favorites">
         <action
             android:id="@+id/action_favorites_to_coffeeDetail"
@@ -52,11 +52,11 @@
     <fragment
         android:id="@+id/coffeeDetailFragment"
         android:name="com.android.ngopiyuk.fragment.CoffeeDetailFragment"
-        android:label="Detail Kopi"
+        android:label="Detail Tempat Ngopi"
         tools:layout="@layout/fragment_coffee_detail">
         <argument
             android:name="coffee"
-            app:argType="com.android.ngopiyuk.model.Coffee" />
+            app:argType="com.android.ngopiyuk.model.CoffeeShop" />
     </fragment>
 
 </navigation>

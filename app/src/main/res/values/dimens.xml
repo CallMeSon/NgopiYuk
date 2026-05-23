@@ -5,12 +5,14 @@
     <dimen name="margin_medium">16dp</dimen>
     <dimen name="margin_large">24dp</dimen>
     <dimen name="padding_standard">16dp</dimen>
+    <dimen name="container_padding">20dp</dimen>
 
     <!-- Text Sizes -->
     <dimen name="text_header">24sp</dimen>
     <dimen name="text_subheader">18sp</dimen>
     <dimen name="text_body">14sp</dimen>
     <dimen name="text_caption">12sp</dimen>
+    <dimen name="text_label">11sp</dimen>
 
     <!-- Component Sizes -->
     <dimen name="bottom_nav_height">56dp</dimen>
@@ -18,4 +20,21 @@
     <dimen name="detail_image_height">280dp</dimen>
     <dimen name="nav_header_height">180dp</dimen>
     <dimen name="bottom_sheet_icon_size">24dp</dimen>
+
+    <!-- Search Bar -->
+    <dimen name="search_bar_height">48dp</dimen>
+    <dimen name="search_bar_radius">24dp</dimen>
+
+    <!-- Coffee Shop Card -->
+    <dimen name="shop_image_size">100dp</dimen>
+    <dimen name="shop_image_radius">12dp</dimen>
+
+    <!-- Chip Filter -->
+    <dimen name="chip_height">36dp</dimen>
+    <dimen name="chip_corner_radius">18dp</dimen>
+
+    <!-- Badge -->
+    <dimen name="badge_corner_radius">4dp</dimen>
+    <dimen name="badge_padding_horizontal">8dp</dimen>
+    <dimen name="badge_padding_vertical">4dp</dimen>
 </resources>

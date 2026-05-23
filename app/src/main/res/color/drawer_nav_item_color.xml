@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Active/Selected state: Espresso primary from DESIGN.MD -->
+    <item android:color="#442A22" android:state_checked="true" />
+    <!-- Inactive state: Outline from DESIGN.MD -->
+    <item android:color="#827470" />
+</selector>

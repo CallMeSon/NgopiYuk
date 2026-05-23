@@ -8,26 +8,26 @@
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/coffee_primary">
+            android:background="@color/white"
+            app:elevation="0dp">
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/topAppBar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/coffee_primary"
+                android:background="@color/white"
                 app:title="@string/app_name"
-                app:titleCentered="true"
-                app:titleTextColor="@color/white"
-                app:navigationIconTint="@color/white"
-                app:layout_scrollFlags="scroll|enterAlways|snap" />
+                app:titleTextColor="@color/coffee_dark"
+                app:navigationIconTint="@color/coffee_dark" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -35,23 +35,22 @@
             android:id="@+id/nav_host_fragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             app:defaultNavHost="true"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:navGraph="@navigation/nav_graph" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="@color/white"
-            app:itemIconTint="@color/coffee_primary"
-            app:itemTextColor="@color/coffee_primary"
+            android:background="@color/nav_surface"
+            app:itemIconTint="@color/bottom_nav_item_color"
+            app:itemTextColor="@color/bottom_nav_item_color"
             app:elevation="8dp"
             app:menu="@menu/bottom_nav_menu" />
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
@@ -59,6 +58,11 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        android:background="@color/nav_surface"
+        app:itemIconTint="@color/drawer_nav_item_color"
+        app:itemTextColor="@color/drawer_nav_item_color"
+        app:itemShapeAppearance="@style/ShapeAppearance.Material3.Corner.Medium"
+        app:itemShapeFillColor="@color/drawer_active_bg"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/drawer_menu" />
 

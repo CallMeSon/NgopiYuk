@@ -10,8 +10,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.ngopiyuk.R
-import com.android.ngopiyuk.adapter.CoffeeAdapter
-import com.android.ngopiyuk.model.Coffee
+import com.android.ngopiyuk.adapter.CoffeeShopAdapter
+import com.android.ngopiyuk.model.CoffeeShop
 import com.android.ngopiyuk.ui.CoffeeOptionsBottomSheet
 import com.android.ngopiyuk.utils.FavoritesManager
 import com.android.ngopiyuk.utils.JsonHelper
@@ -40,8 +40,8 @@ class FavoritesFragment : Fragment() {
         val emptyState: LinearLayout = view.findViewById(R.id.emptyStateLayout)
 
         val favoriteIds = FavoritesManager.getFavoriteIds(requireContext())
-        val allCoffee = JsonHelper.getCoffeeCatalog(requireContext())
-        val favoriteList = allCoffee.filter { favoriteIds.contains(it.id.toString()) }
+        val allShops = JsonHelper.getCoffeeShops(requireContext())
+        val favoriteList = allShops.filter { favoriteIds.contains(it.id.toString()) }
 
         if (favoriteList.isEmpty()) {
             rvFavorites.visibility = View.GONE
@@ -51,21 +51,26 @@ class FavoritesFragment : Fragment() {
             emptyState.visibility = View.GONE
 
             rvFavorites.layoutManager = LinearLayoutManager(requireContext())
-            rvFavorites.adapter = CoffeeAdapter(
-                coffeeList = favoriteList,
-                onItemClick = { coffee -> navigateToDetail(coffee) },
-                onItemLongClick = { coffee -> showBottomSheet(coffee) }
+            rvFavorites.adapter = CoffeeShopAdapter(
+                shopList = favoriteList,
+                onItemClick = { shop -> navigateToDetail(shop) },
+                onItemLongClick = { shop -> showBottomSheet(shop) },
+                onBookmarkChanged = { _, isBookmarked ->
+                    if (!isBookmarked) {
+                        loadFavorites(view)
+                    }
+                }
             )
         }
     }
 
-    private fun navigateToDetail(coffee: Coffee) {
-        val action = FavoritesFragmentDirections.actionFavoritesToCoffeeDetail(coffee)
+    private fun navigateToDetail(shop: CoffeeShop) {
+        val action = FavoritesFragmentDirections.actionFavoritesToCoffeeDetail(shop)
         findNavController().navigate(action)
     }
 
-    private fun showBottomSheet(coffee: Coffee) {
-        val bottomSheet = CoffeeOptionsBottomSheet.newInstance(coffee)
+    private fun showBottomSheet(shop: CoffeeShop) {
+        val bottomSheet = CoffeeOptionsBottomSheet.newInstance(shop)
         bottomSheet.show(childFragmentManager, CoffeeOptionsBottomSheet.TAG)
     }
 }
