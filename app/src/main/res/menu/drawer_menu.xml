@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/dashboardFragment"
+            android:icon="@android:drawable/ic_menu_today"
+            android:title="@string/nav_dashboard" />
+        <item
+            android:id="@+id/pemesananFragment"
+            android:icon="@android:drawable/ic_menu_agenda"
+            android:title="@string/nav_pemesanan" />
+        <item
+            android:id="@+id/profileFragment"
+            android:icon="@android:drawable/ic_menu_myplaces"
+            android:title="@string/nav_profile" />
+    </group>
+
+    <group android:id="@+id/group_extras">
+        <item
+            android:id="@+id/favoritesFragment"
+            android:icon="@android:drawable/btn_star_big_on"
+            android:title="@string/nav_favorites" />
+        <item
+            android:id="@+id/settingsFragment"
+            android:icon="@android:drawable/ic_menu_preferences"
+            android:title="@string/nav_settings" />
+        <item
+            android:id="@+id/aboutFragment"
+            android:icon="@android:drawable/ic_menu_info_details"
+            android:title="@string/nav_about" />
+    </group>
+</menu>

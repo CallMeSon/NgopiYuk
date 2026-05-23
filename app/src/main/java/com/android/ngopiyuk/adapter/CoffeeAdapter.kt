@@ -9,8 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.ngopiyuk.R
 import com.android.ngopiyuk.model.Coffee
 
-class CoffeeAdapter(private val coffeeList: List<Coffee>) :
-    RecyclerView.Adapter<CoffeeAdapter.CoffeeViewHolder>() {
+class CoffeeAdapter(
+    private val coffeeList: List<Coffee>,
+    private val onItemClick: (Coffee) -> Unit,
+    private val onItemLongClick: (Coffee) -> Unit
+) : RecyclerView.Adapter<CoffeeAdapter.CoffeeViewHolder>() {
 
     class CoffeeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imgCoffee: ImageView = view.findViewById(R.id.imgCoffee)
@@ -49,6 +52,17 @@ class CoffeeAdapter(private val coffeeList: List<Coffee>) :
         ).let { if (it == 0) android.R.drawable.ic_menu_gallery else it }
 
         holder.imgCoffee.setImageResource(imageResId)
+
+        // Click listener → navigate to detail
+        holder.itemView.setOnClickListener {
+            onItemClick(coffee)
+        }
+
+        // Long press → show bottom sheet
+        holder.itemView.setOnLongClickListener {
+            onItemLongClick(coffee)
+            true
+        }
     }
 
     override fun getItemCount(): Int = coffeeList.size
