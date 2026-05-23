@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/margin_medium">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:text="@string/bottom_sheet_title"
+        android:textColor="@color/coffee_dark"
+        android:textSize="@dimen/text_subheader"
+        android:textStyle="bold" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_small" />
+
+    <LinearLayout
+        android:id="@+id/optionFavorite"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/margin_small"
+        android:paddingEnd="@dimen/margin_small"
+        android:background="?attr/selectableItemBackground">
+        <ImageView
+            android:id="@+id/iconFavorite"
+            android:layout_width="@dimen/bottom_sheet_icon_size"
+            android:layout_height="@dimen/bottom_sheet_icon_size"
+            android:src="@android:drawable/btn_star_big_off"
+            android:contentDescription="@string/bottom_sheet_add_favorite"
+            app:tint="@color/coffee_primary"
+            xmlns:app="http://schemas.android.com/apk/res-auto" />
+        <TextView
+            android:id="@+id/tvFavoriteOption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:text="@string/bottom_sheet_add_favorite"
+            android:textColor="@color/coffee_dark"
+            android:textSize="@dimen/text_body" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/optionShare"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/margin_small"
+        android:paddingEnd="@dimen/margin_small"
+        android:background="?attr/selectableItemBackground">
+        <ImageView
+            android:layout_width="@dimen/bottom_sheet_icon_size"
+            android:layout_height="@dimen/bottom_sheet_icon_size"
+            android:src="@android:drawable/ic_menu_share"
+            android:contentDescription="@string/bottom_sheet_share"
+            app:tint="@color/coffee_primary"
+            xmlns:app="http://schemas.android.com/apk/res-auto" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:text="@string/bottom_sheet_share"
+            android:textColor="@color/coffee_dark"
+            android:textSize="@dimen/text_body" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/optionDetail"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/margin_small"
+        android:paddingEnd="@dimen/margin_small"
+        android:background="?attr/selectableItemBackground">
+        <ImageView
+            android:layout_width="@dimen/bottom_sheet_icon_size"
+            android:layout_height="@dimen/bottom_sheet_icon_size"
+            android:src="@android:drawable/ic_menu_view"
+            android:contentDescription="@string/bottom_sheet_view_detail"
+            app:tint="@color/coffee_primary"
+            xmlns:app="http://schemas.android.com/apk/res-auto" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:text="@string/bottom_sheet_view_detail"
+            android:textColor="@color/coffee_dark"
+            android:textSize="@dimen/text_body" />
+    </LinearLayout>
+
+</LinearLayout>
