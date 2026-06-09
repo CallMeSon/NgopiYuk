@@ -109,8 +109,3 @@ Latar belakang data kedai kopi bersumber dari file JSON lokal yang disimpan di f
 6.  Klik tombol **Run** (ikon segitiga hijau) di bagian toolbar Android Studio untuk memulai instalasi aplikasi **NgopiYuk** pada perangkat Anda.
 
 ---
-
----
-
-💡 **Butuh bantuan atau pengembangan lebih lanjut?**
-Gunakan asisten AI untuk memandu Anda menambahkan fitur baru, memoles desain sesuai `DESIGN.MD`, atau menulis pengujian unit untuk menjamin keandalan aplikasi NgopiYuk! Selamat coding! ☕✨
